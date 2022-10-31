@@ -1,4 +1,4 @@
-# lostand-found
+# LOST AND FOUND
 
 Ini berisi PROJEK sementara HTML,CSS,JAVASCRIPT dari mata kuliah Pemograman Web Design
 
