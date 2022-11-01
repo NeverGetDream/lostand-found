@@ -4,7 +4,7 @@ Ini berisi PROJEK sementara HTML,CSS,JAVASCRIPT dari mata kuliah Pemograman Web 
 
 # Tujuan
 
-- Lulus Mata Kuliah
+- Lulus Mata Kuliah Desain dan Pemrograman Web
 - Mengasah Skill
 - Mendapat nilai UTS
 
