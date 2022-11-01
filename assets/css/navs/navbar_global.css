@@ -6,6 +6,13 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 0 100px;
+    z-index: 10000;
+    position: fixed;
+    box-shadow: 5px 5px 5px 5px rgba(58, 58, 58, 0.205);
+}
+header.sticky{
+    padding: auto;
+    background: #fff;
 }
 header img {
     width: 210px;
@@ -28,7 +35,7 @@ header img {
     padding: 10px 20px;
     border-radius: 15px;
     transition: 0.3s;
-    font-weight: 500;
+    font-weight: 700;
     margin: 0 5px;
     margin-top: 25px;
     text-decoration: none;

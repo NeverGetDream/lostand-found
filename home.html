@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
     <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/navs/navbar_global.css" rel="stylesheet" type="text/css" />
+    <link
+      href="assets/css/navs/navbar_global.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <link href="assets/css/globalstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/home.css" rel="stylesheet" type="text/css" />
     <script src="components/bootstrap.bundle.js"></script>
     <title>Home | Lost&Found</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!--NAVBAR-->
     <header>
       <div class="logo">
-        <img src="assets/img/lostlogo.png" class="logo"alt="logo"/>
+        <img src="assets/img/lostlogo.png" class="logo" alt="logo" />
       </div>
       <div class="hamburger">
         <div class="line"></div>
@@ -37,10 +44,62 @@
       </nav>
     </header>
     <script src="components/navbar.js"></script>
+    <script src="components/navbar-sticky.js"></script>
+
     <!--MAIN CONTAINER-->
+    <div class="color-carousel">
+      <div class="container section">
+        <!-- Carousel -->
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+          <!-- Indicators/dots -->
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#demo"
+              data-bs-slide-to="0"
+              class="active"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#demo"
+              data-bs-slide-to="1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#demo"
+              data-bs-slide-to="2"
+            ></button>
+          </div>
+
+          <!-- The slideshow/carousel -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="assets/img/carousel1.png"
+                alt="Los Angeles"
+                class="d-block w-100"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="assets/img/carousel2.png"
+                alt="Chicago"
+                class="d-block w-100"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="assets/img/carousel3.png"
+                alt="New York"
+                class="d-block w-100"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=""></div>
 
     <!--FOOTER-->
-
-</body>
-
+  </body>
 </html>
