@@ -1,0 +1,75 @@
+.container-footer{
+    width: 100%;
+    background-color: #F9A826;
+}
+.container-footer .page-one{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap:50px;
+    padding: 45px 0px;
+}
+.container-footer .page-one .box figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-footer .page-one .box figure img{
+    width: 250px;
+}
+.container-footer .page-one .box h2{
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.container-footer .page-one .box-center{
+
+    margin-top: 30px;
+}
+.container-footer .page-one .box a{
+    color: #efefef;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 0 5px 0 5px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.container-footer .page-one .social-media i{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 30px;
+    transition: all 300ms ease;
+}
+.container-footer .page-one .social-media i:hover{
+    color: #db8b0b;
+    cursor:pointer;
+}
+.container-footer .page-two{
+    background-color: #db8b0b;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+}
+.container-footer .page-two small{
+    font-size: 15px;
+}
+@media screen and (max-width:900px){
+    .container-footer .page-one{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap:30px;
+        padding: 35px 0px;
+    }
+}
