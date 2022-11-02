@@ -7,8 +7,8 @@
 }
 
 .mckup{
-    height: 537px;
-    width: 281px;
+    height: 497px;
+    width: 423px;
     margin-left: auto;
     margin-right: auto;
     display:block;
@@ -38,16 +38,22 @@
     width: 200px;
     height: 45px;
     border: transparent;
-    border-radius: 30px;
+    border-radius: 10px;
     padding: 10px 20px 10px 20px;
+    transition:0.5s;
+}
 
+.button-more:hover{
+    background: rgba(255,239,0,1);
+    background: linear-gradient(90deg, rgba(255,239,0,1) 0%, rgba(249,168,38,1) 100%);
+    border-radius: 30px;
 }
 
 
 @media only screen and (max-width:900px) {
     .mckup{
         height: 327px;
-        width: 165px;
+        width: 265px;
     }
     .text-mckup{
         margin-top: 1rem;
