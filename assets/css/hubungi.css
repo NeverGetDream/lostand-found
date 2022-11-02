@@ -1,0 +1,35 @@
+.section{
+    padding-top: 140px;
+    padding-right: 0px;
+}
+h1{
+    font-weight: 700;
+    font-size: 50px;
+}
+
+h1::after{
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    margin-top: 20px;
+    bottom: -3px;
+    background-color: #db8a08;;
+}
+p{
+    margin-top: 30px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.iframe{
+    width: 200px;
+    height: 200px;
+}
+h2{
+    font-weight: 700;
+}
+
+.section-mt{
+    margin-bottom: 24rem;
+}
