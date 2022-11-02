@@ -5,3 +5,56 @@
 .color-carousel{
     background-color:#F9A826;
 }
+
+.mckup{
+    height: 537px;
+    width: 281px;
+    margin-left: auto;
+    margin-right: auto;
+    display:block;
+}
+.text-mckup{
+    margin-top: 5rem;
+}
+
+.text-mckup > .paraf{
+    font-weight: 500;
+    margin-top: 3rem;
+}
+
+.text-mckup > .paraf > .paraf-color{
+    color:#F9A826;
+}
+.head-color{
+    color:#F9A826;
+}
+
+.button-more{
+    margin-top: 1rem;
+    background: rgb(249,168,38);
+    background: linear-gradient(90deg, rgba(249,168,38,1) 0%, rgba(255,239,0,1) 100%);
+    color: #fff;
+    font-weight: 500;
+    width: 200px;
+    height: 45px;
+    border: transparent;
+    border-radius: 30px;
+    padding: 10px 20px 10px 20px;
+
+}
+
+
+@media only screen and (max-width:900px) {
+    .mckup{
+        height: 327px;
+        width: 165px;
+    }
+    .text-mckup{
+        margin-top: 1rem;
+    }
+    .text-mckup > .paraf{
+        font-weight: 500;
+        margin-top: 1rem;
+    }
+
+}
