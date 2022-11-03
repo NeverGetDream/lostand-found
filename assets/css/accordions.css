@@ -33,7 +33,7 @@
 }
 
 #accordion .accordion .card-header .btn:hover {
-    color: #ff8300;
+    color: #F9A826;
 }
 
 #accordion .accordion .card-body {
@@ -53,13 +53,13 @@
     position: absolute;
     height: 3px;
     border-radius: 1px;
-    background: #73bb2b;
+    background: #F9A826;
     left: 0;
     bottom: -15px;
 }
 
 #accordion .accordion .highlight .btn {
-    color: #74bd30;
+    color: #F9A826;
 }
 
 #accordion .accordion .highlight i {
