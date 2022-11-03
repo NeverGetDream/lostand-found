@@ -31,5 +31,38 @@ h2{
 }
 
 .section-mt{
-    margin-bottom: 24rem;
+    margin-bottom: 15rem;
+}
+
+.button-more{
+    margin-top: 1rem;
+    background: rgb(249,168,38);
+    background: linear-gradient(90deg, rgba(249,168,38,1) 0%, rgba(255,239,0,1) 100%);
+    color: #fff;
+    font-weight: 500;
+    width: 200px;
+    height: 45px;
+    border: transparent;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    transition:0.5s;
+}
+
+a{
+    text-decoration: none;
+ }
+.button-more:hover{
+    background: rgba(255,239,0,1);
+    background: linear-gradient(90deg, rgba(255,239,0,1) 0%, rgba(249,168,38,1) 100%);
+    border-radius: 30px;
+}
+.modal-style{
+    padding-top: 15rem;
+}
+
+@media screen and (max-width:900px){
+    iframe{
+        width:350px;
+        height:225;
+    }
 }
