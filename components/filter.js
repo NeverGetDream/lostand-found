@@ -52,7 +52,8 @@ let products = {
       {
         productName: "Jam Tangan",
         category: "Bendalain",
-        location: "Rusdi barber",
+        location: "Mushollah pnup",
+        founder: "Jawir"
         image: "assets/img/jam2.jpg",
       },
     ],
