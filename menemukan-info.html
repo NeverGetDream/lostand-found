@@ -5,6 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="assets/css/navs/navbar_global.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/footer/footer.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/globalstyle.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/home.css" rel="stylesheet" type="text/css" />
+    <script src="components/bootstrap.bundle.js"></script>
+
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
     <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -14,7 +21,33 @@
 </head>
 
 <body style="background-color: #f9a826">
-    <section class="vh-100" style="background-color: #f9a826">
+    <!--NAVBAR-->
+    <header>
+        <div class="logo">
+            <a href="home.html"><img src="assets/img/lostlogo.png" class="logo" alt="logo" /></a>
+        </div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="home.html" class="active">HOME</a></li>
+                <li><a href="temukan-barang.html" class="active">TEMUKAN BARANG</a></li>
+                <li><a href="help.html" class="active">BANTUAN</a></li>
+                <li><a href="tentang.html" class="active">TENTANG KAMI</a></li>
+                <li><a href="hubungi.html" class="active">HUBUNGI KAMI</a></li>
+                <li><a href="login.html" class="masuk">MASUK</a></li>
+                <li><a href="register.html" class="register">DAFTAR</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script src="components/navbar.js"></script>
+    <script src="components/navbar-sticky.js"></script>
+
+
+    <section class="vh-100 pt-6" style="background-color: #f9a826">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-xl-10">
@@ -30,7 +63,8 @@
                                         <div class="Neon-input-inner">
                                             <div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div>
                                             <div class="Neon-input-text">
-                                                <h3>Drag&amp;Drop files here</h3> <span style="display:inline-block; margin: 15px 0">or</span>
+                                                <h3>Drag&amp;Drop files here</h3> <span
+                                                    style="display:inline-block; margin: 15px 0">or</span>
                                             </div><a class="Neon-input-choose-btn blue">Browse Files</a>
                                         </div>
                                     </div>
