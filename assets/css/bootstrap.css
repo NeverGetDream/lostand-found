@@ -7708,6 +7708,10 @@ textarea.form-control-lg {
   margin-top: 12rem !important;
 }
 
+.mt-8 {
+  margin-top: 24rem !important;
+}
+
 .mt-auto {
   margin-top: auto !important;
 }
@@ -7910,6 +7914,14 @@ textarea.form-control-lg {
 
 .pt-5 {
   padding-top: 3rem !important;
+}
+
+.pt-6 {
+  padding-top: 6rem !important;
+}
+
+.pt-7 {
+  padding-top: 12rem !important;
 }
 
 .pe-0 {
