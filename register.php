@@ -82,7 +82,7 @@
 
                     <p class="mb-5 pb-lg-2" style="color: #393f81">
                       Sudah memiliki akun?
-                      <a href="login.html" style="color: #393f81">Masuk disini!</a>
+                      <a href="login.php" style="color: #393f81">Masuk disini!</a>
                     </p>
                   </form>
                 </div>

@@ -53,7 +53,7 @@
                       <a class="small text-muted" href="#!">Lupa Password?</a>
                       <p class="mb-5 pb-lg-2" style="color: #393f81">
                         Belum punya akun?
-                        <a href="register.html" style="color: #393f81">Daftar disini!</a>
+                        <a href="register.php" style="color: #393f81">Daftar disini!</a>
                       </p>
                     </form>
                   </div>

@@ -24,7 +24,7 @@
     <!--NAVBAR-->
     <header>
         <div class="logo">
-            <a href="home.html"><img src="assets/img/lostlogo.png" class="logo" alt="logo" /></a>
+            <a href="home.php"><img src="assets/img/lostlogo.png" class="logo" alt="logo" /></a>
         </div>
         <div class="hamburger">
             <div class="line"></div>
@@ -33,13 +33,13 @@
         </div>
         <nav class="nav-bar">
             <ul>
-                <li><a href="home.html" class="active">HOME</a></li>
-                <li><a href="temukan-barang.html" class="active">TEMUKAN BARANG</a></li>
-                <li><a href="help.html" class="active">BANTUAN</a></li>
-                <li><a href="tentang.html" class="active">TENTANG KAMI</a></li>
-                <li><a href="hubungi.html" class="active">HUBUNGI KAMI</a></li>
-                <li><a href="login.html" class="masuk">MASUK</a></li>
-                <li><a href="register.html" class="register">DAFTAR</a></li>
+                <li><a href="home.php" class="active">HOME</a></li>
+                <li><a href="temukan-barang.php" class="active">TEMUKAN BARANG</a></li>
+                <li><a href="help.php" class="active">BANTUAN</a></li>
+                <li><a href="tentang.php" class="active">TENTANG KAMI</a></li>
+                <li><a href="hubungi.php" class="active">HUBUNGI KAMI</a></li>
+                <li><a href="login.php" class="masuk">MASUK</a></li>
+                <li><a href="register.php" class="register">DAFTAR</a></li>
             </ul>
         </nav>
     </header>
@@ -134,7 +134,7 @@
 
                                         <p class="mb-5 pb-lg-2" style="color: #393f81">
                                             Tidak tau apa yang Anda lakukan?
-                                            <a href="help.html" style="color: #393f81"> Help!</a>
+                                            <a href="help.php" style="color: #393f81"> Help!</a>
                                         </p>
                                     </form>
                                 </div>

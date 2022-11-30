@@ -30,7 +30,7 @@
     <!--NAVBAR-->
     <header>
       <div class="logo">
-        <a href="home.html"
+        <a href="home.php"
           ><img src="assets/img/lostlogo.png" class="logo" alt="logo"
         /></a>
       </div>
@@ -41,13 +41,13 @@
       </div>
       <nav class="nav-bar">
         <ul>
-          <li><a href="home.html" class="active">HOME</a></li>
-          <li><a href="temukan-barang.html" class="active">TEMUKAN BARANG</a></li>
-          <li><a href="help.html" class="active">BANTUAN</a></li>
-          <li><a href="tentang.html" class="active">TENTANG KAMI</a></li>
-          <li><a href="hubungi.html" class="active">HUBUNGI KAMI</a></li>
-          <li><a href="login.html" class="masuk">MASUK</a></li>
-          <li><a href="register.html" class="register">DAFTAR</a></li>
+          <li><a href="home.php" class="active">HOME</a></li>
+          <li><a href="temukan-barang.php" class="active">TEMUKAN BARANG</a></li>
+          <li><a href="help.php" class="active">BANTUAN</a></li>
+          <li><a href="tentang.php" class="active">TENTANG KAMI</a></li>
+          <li><a href="hubungi.php" class="active">HUBUNGI KAMI</a></li>
+          <li><a href="login.php" class="masuk">MASUK</a></li>
+          <li><a href="register.php" class="register">DAFTAR</a></li>
         </ul>
       </nav>
     </header>
@@ -88,7 +88,7 @@
               </div>
             </div>
             <div>
-            <a href="help.html"><button class="button-more" href="help.html">Perlu bantuan</button></a>
+            <a href="help.php"><button class="button-more" href="help.php">Perlu bantuan</button></a>
               <br />
               <button
                 class="button-more"

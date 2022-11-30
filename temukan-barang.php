@@ -20,7 +20,7 @@
     <!--NAVBAR-->
     <header>
         <div class="logo">
-            <a href="home.html"><img src="assets/img/lostlogo.png" class="logo" alt="logo" /></a>
+            <a href="home.php"><img src="assets/img/lostlogo.png" class="logo" alt="logo" /></a>
         </div>
         <div class="hamburger">
             <div class="line"></div>
@@ -29,13 +29,13 @@
         </div>
         <nav class="nav-bar">
             <ul>
-                <li><a href="home.html" class="active">HOME</a></li>
-                <li><a href="temukan-barang.html" class="active">TEMUKAN BARANG</a></li>
-                <li><a href="help.html" class="active">BANTUAN</a></li>
-                <li><a href="tentang.html" class="active">TENTANG KAMI</a></li>
-                <li><a href="hubungi.html" class="active">HUBUNGI KAMI</a></li>
-                <li><a href="login.html" class="masuk">MASUK</a></li>
-                <li><a href="register.html" class="register">DAFTAR</a></li>
+                <li><a href="home.php" class="active">HOME</a></li>
+                <li><a href="temukan-barang.php" class="active">TEMUKAN BARANG</a></li>
+                <li><a href="help.php" class="active">BANTUAN</a></li>
+                <li><a href="tentang.php" class="active">TENTANG KAMI</a></li>
+                <li><a href="hubungi.php" class="active">HUBUNGI KAMI</a></li>
+                <li><a href="login.php" class="masuk">MASUK</a></li>
+                <li><a href="register.php" class="register">DAFTAR</a></li>
             </ul>
         </nav>
     </header>
@@ -55,14 +55,14 @@
 					<div class="mt-4 container">
 						<div class="row container mt-2 mb-4" style="align-self: center;">
 							<div class="col-sm-4 container mt-1">
-								<a href="kehilangan.html" style="text-decoration: none;">
+								<a href="kehilangan.php" style="text-decoration: none;">
 									<img src="assets/img/lost.png" alt="LOST" width="400px" style="float: right;">
 									<h2 class="mt-1 head-color" style="font-weight: 900; text-align: center;">LOST</h2>
 								</a>
                                 <p style="text-align: center;">Temukan barang Anda yang hilang!</p>
 							</div>
 							<div class="col-sm-4 container mt-1">
-								<a href="menemukan-info.html" style="text-decoration: none;">
+								<a href="menemukan-info.php" style="text-decoration: none;">
 									<img src="assets/img/found.png" alt="FOUND" width="400px" style="float: left;">
 									<h2 class="mt-1 head-color" style="font-weight: 900; text-align: center;">FOUND</h2>
 								</a>
