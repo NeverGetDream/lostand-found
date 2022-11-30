@@ -30,13 +30,13 @@
         </div>
         <nav class="nav-bar">
             <ul>
-                <li><a href="home.php" class="active">HOME</a></li>
-                <li><a href="temukan-barang.php" class="active">TEMUKAN BARANG</a></li>
-                <li><a href="help.php" class="active">BANTUAN</a></li>
-                <li><a href="tentang.php" class="active">TENTANG KAMI</a></li>
-                <li><a href="hubungi.php" class="active">HUBUNGI KAMI</a></li>
-                <li><a href="login.php" class="masuk">MASUK</a></li>
-                <li><a href="register.php" class="register">DAFTAR</a></li>
+                <li><a href=<?= base_url('home') ?> class="active">HOME</a></li>
+				<li><a href=<?= base_url('temukan_barang') ?> class="active">TEMUKAN BARANG</a></li>
+				<li><a href=<?= base_url('help') ?> class="active">BANTUAN</a></li>
+				<li><a href=<?= base_url('tentang') ?> class="active">TENTANG KAMI</a></li>
+				<li><a href=<?= base_url('hubungi') ?> class="active">HUBUNGI KAMI</a></li>
+				<li><a href=<?= base_url('login') ?> class="masuk">MASUK</a></li>
+				<li><a href=<?= base_url('register') ?> class="register">DAFTAR</a></li>
             </ul>
         </nav>
     </header>
