@@ -19,7 +19,7 @@ class Auth extends CI_Controller
 
     public function register()
     {
-        $this->form_validation->set_rules('fname','Fname','required|trim');
+        $this->form_validation->set_rules('fname', 'Fname', 'required|trim');
         if ($this->form_validation->run() == FALSE) {
             $data['title'] = 'Register | LostaAndFound';
             $this->load->view('components/auth_header', $data);
