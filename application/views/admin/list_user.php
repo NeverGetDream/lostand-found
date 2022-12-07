@@ -39,14 +39,6 @@
                             <td>Makassar</td>
                             <td>PNUP</td>
                         </tr>
-                        <tr>
-                            <td>Zaedil</td>
-                            <td>Firmansyah</td>
-                            <td>zaediltest@gmail.com</td>
-                            <td>Sulawesi Selatan</td>
-                            <td>Bone</td>
-                            <td>PNUP</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

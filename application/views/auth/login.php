@@ -10,7 +10,7 @@
               </div>
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-5 text-black">
-                  <form>
+                  <form class="user" method="post" action=<?= base_url('auth'); ?>>
                     <div class="d-flex align-items-center mb-3 pb-1">
                       <i class="bi bi-search-heart-fill" style="font-size: 30px; color: #f9a826"></i>
                       <span class="h1 fw-bold mb-0">LOST&FOUND</span>
@@ -19,19 +19,21 @@
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
                       Masuk kedalam akun
                     </h5>
-
+                    <?= $this->session->flashdata('message'); ?>
                     <div class="form-outline mb-4">
                       <label class="form-label" for="email">Email address</label>
-                      <input type="email" id="email" class="form-control form-control-lg" placeholder="Alamat Email" />
+                      <input type="email" id="email" class="form-control form-control-lg" placeholder="Alamat Email" name="email" value=<?= set_value('email') ?>>
+                      <small class="text-danger"><?= form_error('email') ?></small>
                     </div>
 
                     <div class="form-outline mb-4">
                       <label class="form-label" for="password">Password</label>
-                      <input type="password" id="password" class="form-control form-control-lg" placeholder="Password" />
+                      <input type="password" id="password" class="form-control form-control-lg" placeholder="Password" name="password">
+                      <small class="text-danger"><?= form_error('password') ?></small>
                     </div>
 
                     <div class="pt-1 mb-4">
-                      <button class="btn btn-dark btn-lg btn-block" type="button">Masuk</button>
+                      <button class="btn btn-dark btn-lg btn-block" type="submit">Masuk</button>
                     </div>
 
                     <a class="small text-muted" href="#!">Lupa Password?</a>
