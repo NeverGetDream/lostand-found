@@ -30,7 +30,7 @@
     <nav class="nav-bar">
       <ul>
         <li><a href=<?= base_url('admin'); ?> class="active">HOME</a></li>
-        <li><a href=<?= base_url('admin/'); ?> class="active">DAFTAR USER</a></li>
+        <li><a href=<?= base_url('admin/user_list'); ?> class="active">DAFTAR USER</a></li>
         <li><a href=<?= base_url('admin/'); ?> class="active">BARANG HILANG</a></li>
         <li><a href=<?= base_url('admin/'); ?> class="active">BATANG DITEMUKAN</a></li>
       </ul>
