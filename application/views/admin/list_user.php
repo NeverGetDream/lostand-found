@@ -19,12 +19,29 @@
                             <th>Alamat</th>
                             <th>Kota</th>
                             <th>Provinsi</th>
-                            <th>Role ID</th>
+                            <th>Status</th>
+                            <th>Role</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                             foreach($user as $row){
+                                // Cek Status
+                                if($row['is_active'] == 1){
+                                    $status = 'Aktif';
+                                }
+                                else{
+                                    $status = 'Tidak Aktif';
+                                }
+                                
+                                // Cek Role
+                                if($row['role_id'] == 1){
+                                    $role = 'User';
+                                }
+                                else if ($row['role_id'] == 2){
+                                    $role = 'Admin';
+                                }
+                                
                                 echo '
                                     <tr>
                                         <td>'. $row['user_id'] .'</td>
@@ -34,7 +51,8 @@
                                         <td>'. $row['alamat'] .'</td>
                                         <td>'. $row['kota'] .'</td>
                                         <td>'. $row['provinsi'] .'</td>
-                                        <td>'. $row['role_id'] .'</td>
+                                        <td>'. $status .'</td>
+                                        <td>'. $role .'</td>
                                     </tr>
                                 ';
                             }

@@ -11,7 +11,7 @@ class M_admin extends CI_Model {
     }
 
     public function getListUser(){
-        $alluser = "SELECT user_id, first_name, last_name, email, alamat, kota, provinsi, role_id FROM users";
+        $alluser = "SELECT user_id, first_name, last_name, email, alamat, kota, provinsi, is_active, role_id FROM users";
         $dataraw = $this->db->query($alluser);
         $data = $dataraw->result_array();
         return $data;
