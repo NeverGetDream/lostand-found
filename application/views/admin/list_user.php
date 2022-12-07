@@ -12,33 +12,33 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Nama depan</th>
+                            <th>ID User</th>
+                            <th>Nama Depan</th>
                             <th>Nama Belakang</th>
-                            <th>Email</th>
-                            <th>Provinsi</th>
-                            <th>Kota</th>
+                            <th>E-Mail</th>
                             <th>Alamat</th>
+                            <th>Kota</th>
+                            <th>Provinsi</th>
+                            <th>Role ID</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Nama depan</th>
-                            <th>Nama Belakang</th>
-                            <th>Email</th>
-                            <th>Provinsi</th>
-                            <th>Kota</th>
-                            <th>Alamat</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
-                        <tr>
-                            <td>Azwar</td>
-                            <td>Kusumah</td>
-                            <td>azwartest@gmail.com</td>
-                            <td>Sulawesi Selatan</td>
-                            <td>Makassar</td>
-                            <td>PNUP</td>
-                        </tr>
+                        <?php
+                            foreach($user as $row){
+                                echo '
+                                    <tr>
+                                        <td>'. $row['user_id'] .'</td>
+                                        <td>'. $row['first_name'] .'</td>
+                                        <td>'. $row['last_name'] .'</td>
+                                        <td>'. $row['email'] .'</td>
+                                        <td>'. $row['alamat'] .'</td>
+                                        <td>'. $row['kota'] .'</td>
+                                        <td>'. $row['provinsi'] .'</td>
+                                        <td>'. $row['role_id'] .'</td>
+                                    </tr>
+                                ';
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>
