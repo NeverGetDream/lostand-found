@@ -1,9 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Auth extends CI_Controller
-{
-
+class Auth extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
@@ -42,7 +40,7 @@ class Auth extends CI_Controller
                     if ($user['role_id'] == 1) {
                         redirect('admin');
                     } else {
-                        redirect('user');
+                        redirect('main');
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
