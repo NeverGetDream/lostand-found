@@ -66,8 +66,7 @@ class Auth extends CI_Controller
         }
     }
 
-    public function register()
-    {
+    public function register(){
         $this->form_validation->set_rules('fname', 'Nama Depan', 'required|trim');
         $this->form_validation->set_rules('bname', 'Nama belakang', 'required|trim');
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[users.email]', ['is_unique' => 'Email already registered']);
@@ -93,20 +92,17 @@ class Auth extends CI_Controller
                 'role_id' => 2,
                 'is_active' => 1,
                 'date_created' => time()
-
             ];
 
             $this->db->insert('users', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
             Selamat! akun anda berhasil dibuat. Silahkan Login!
-          </div>');
+            </div>');
             redirect('auth');
         };
     }
 
-    public function logout()
-    {
-
+    public function logout(){
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('role_id');
 
