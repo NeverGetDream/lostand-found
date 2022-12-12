@@ -32,9 +32,7 @@ class Auth extends CI_Controller
         $user = $this->db->get_where('users', ['email' => $email])->row_array();
 
         if ($user) {
-
             if ($user['is_active'] == 1) {
-
                 if (password_verify($password, $user['password'])) {
                     $data = [
                         'email' => $user['email'],
@@ -54,8 +52,8 @@ class Auth extends CI_Controller
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-            Email belum di aktivasi!
-          </div>');
+                Email belum di aktivasi!
+                </div>');
                 redirect('auth');
             }
         } else {
