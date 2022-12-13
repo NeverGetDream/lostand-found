@@ -28,6 +28,22 @@ class Main extends CI_Controller {
         $this->load->view('main/temukan');
         $this->load->view('components/footer.php');
     }
+    
+    public function lost(){
+        $data['title'] = 'Kehilangan Barang | LostAndFound';
+        $this->load->helper('url');
+        $this->load->view('components/navbar.php',$data);
+        $this->load->view('main/sub_temukan/lost');
+        $this->load->view('components/footer.php');
+    }
+
+    public function found(){
+        $data['title'] = 'Menemukan Barang | LostAndFound';
+        $this->load->helper('url');
+        $this->load->view('components/navbar.php',$data);
+        $this->load->view('main/sub_temukan/found');
+        // $this->load->view('components/footer.php');
+    }
 
     public function help()
 	{
