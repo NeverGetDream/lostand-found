@@ -39,8 +39,8 @@
       </ul>
     </nav>
   </header>
-  <script src="components/navbar.js"></script>
-  <script src="components/navbar-sticky.js"></script>
+  <script src="<?= base_url('components/'); ?>navbar.js"></script>
+  <script src="<?= base_url('components/'); ?>navbar-sticky.js"></script>
 </body>
 
 </html>
