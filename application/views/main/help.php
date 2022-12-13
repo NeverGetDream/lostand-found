@@ -12,21 +12,21 @@
 						<div class="row container mt-4 mb-4" style="align-self: center;">
 							<div class="col-sm-4 container mt-4">
 								<a href="#" style="text-decoration: none;">
-									<img src="<?= base_url('assets/'); ?>img/about/faq.png" alt="" width="250px" class="mx-auto d-block">
+									<img src="<?= base_url('assets/'); ?>img/about/faq.png" alt="" width="200px" class="mx-auto d-block mb-4">
 									<h2 class="mt-1" style="font-weight: 900; text-align: center; color: #7004d4;">FAQ
 									</h2>
 								</a>
 							</div>
 							<div class="col-sm-4 container mt-4">
 								<a href="#" style="text-decoration: none;">
-									<img src="<?= base_url('assets/'); ?>img/about/bantuan.png" alt="" width="250px" class="mx-auto d-block">
+									<img src="<?= base_url('assets/'); ?>img/about/bantuan.png" alt="" width="200px" class="mx-auto d-block mb-4">
 									<h2 class="mt-1" style="font-weight: 900; text-align: center; color: #7004d4;">HELP
 									</h2>
 								</a>
 							</div>
 							<div class="col-sm-4 container mt-4">
 								<a href="#" style="text-decoration: none;">
-									<img src="<?= base_url('assets/'); ?>img/about/ask-2.png" alt="" width="250px" class="mx-auto d-block">
+									<img src="<?= base_url('assets/'); ?>img/about/ask-2.png" alt="" width="200px" class="mx-auto d-block mb-4">
 									<h2 class="mt-1" style="font-weight: 900; text-align: center; color: #7004d4;">ASK
 									</h2>
 								</a>

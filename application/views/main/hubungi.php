@@ -15,8 +15,9 @@
       <div class="col-lg-6">
         <h2>Kantor Sementara</h2>
         <p>
-          PT. Kerja Kelompok Sukses <br />Kampus 1 PNUP <br />JL. Jalan
-          Utama Unhas
+          PT. Kerja Kelompok Sukses <br/>
+          Kampus 1 PNUP <br/>
+          JL. Jalan Utama Unhas
         </p>
         <div class="row">
           <div class="col-5">
