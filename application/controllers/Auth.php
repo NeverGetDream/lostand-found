@@ -22,21 +22,22 @@ class Auth extends CI_Controller{
         }
     }
 
-    private function _login()
-    {
+    private function _login(){
         $email = $this->input->post('email');
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('users', ['email' => $email])->row_array();
 
+        
         if ($user) {
             if ($user['is_active'] == 1) {
                 if (password_verify($password, $user['password'])) {
-                    $data = [
-                        'email' => $user['email'],
-                        'role_id' => $user['role_id']
-                    ];
-                    $this->session->set_userdata($data);
+                    $this->session->set_userdata('auth_data', $user);
+                    // View raw data
+                    // $data = $this->session->userdata['auth_data'];
+                    // $row = $user -> fetch_assoc();
+                    // echo '<pre>'; print_r($data); echo '</pre>'; die();
+
                     if ($user['role_id'] == 1) {
                         redirect('admin');
                     } else {
@@ -57,7 +58,7 @@ class Auth extends CI_Controller{
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
             Email belum pernah terdaftar!
-          </div>');
+            </div>');
             redirect('auth');
         }
     }
@@ -99,15 +100,17 @@ class Auth extends CI_Controller{
     }
 
     public function logout(){
-        $this->session->unset_userdata('email');
-        $this->session->unset_userdata('role_id');
-
+        // $this->session->unset_userdata('email');
+        // $this->session->unset_userdata('role_id');
+        
         $this->session->set_flashdata(
             'message',
             '<div class="alert alert-success" role="alert">
-                Anda telah Logout!
+            Anda telah Logout!
             </div>'
         );
+        $this->session->unset_userdata('auth_data');
+        // $this->session->sess_destroy();
         redirect('auth');
     }
 }
