@@ -27,7 +27,13 @@
       </div>
       <div class="box">
         <div class="box-center">
-          <a class="">Temukan Barang</a>
+        <?php
+          if(!empty($this->session->userdata['auth_data'])){
+            echo '
+              <a href="'.base_url() .'main/temukan" class="active">Temukan Barang</a>
+            ';
+          }
+        ?>
           <a class="">Tentang kami</a>
           <a class="">Hubungi kami</a>
         </div>

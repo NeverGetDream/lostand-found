@@ -1,5 +1,5 @@
 <body>
-<div class="color-carousel">
+  <div class="color-carousel">
     <!--CONTAINER ke 1-->
     <div class="container section">
       <!-- Carousel -->
@@ -149,4 +149,5 @@
     </div>
   </div>
 </body>
+
 </html>

@@ -32,6 +32,13 @@
       <ul>
         <!-- Paging -->
         <li><a href=<?= base_url(''); ?> class="active">HOME</a></li>
+        <?php
+          if(!empty($this->session->userdata['auth_data'])){
+            echo '
+              <li><a href="'.base_url() .'main/temukan" class="active">TEMUKAN BARANG</a></li>
+            ';
+          }
+        ?>
         <li><a href=<?= base_url('main/help'); ?> class="active">BANTUAN</a></li>
         <li><a href=<?= base_url('main/tentang'); ?> class="active">TENTANG KAMI</a></li>
         <li><a href=<?= base_url('main/hubungi'); ?> class="active">HUBUNGI KAMI</a></li>
@@ -56,10 +63,6 @@
             ';
           }
         ?>
-
-
-        <div>
-        </div>
       </ul>
     </nav>
   </header>

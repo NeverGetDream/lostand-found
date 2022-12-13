@@ -20,6 +20,14 @@ class Main extends CI_Controller {
 		$this->load->view('main/hubungi');
         $this->load->view('components/footer.php');
 	}
+    
+    public function temukan(){
+        $data['title'] = 'Temukan Barang | LostAndFound';
+        $this->load->helper('url');
+        $this->load->view('components/navbar.php',$data);
+        $this->load->view('main/temukan');
+        $this->load->view('components/footer.php');
+    }
 
     public function help()
 	{
