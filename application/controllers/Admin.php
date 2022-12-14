@@ -28,6 +28,7 @@ class Admin extends CI_Controller{
             redirect(base_url('auth'));
         }
     }
+    
     public function index(){
         $data['title'] = 'Admin Panel | LostAndFound';
         $this->load->view('components/header', $data);
