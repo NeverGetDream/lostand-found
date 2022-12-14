@@ -116,7 +116,7 @@
 										atau
 										<a href="register.html" style="text-decoration: none;"> daftar </a>
 										terlebih dahulu, kemudian lengkapi data diri Anda dan lakukan verifikasi. Setelah itu beralih ke menu
-										<a href="temukan-barang.html" style="text-decoration: none;"> temukan barang </a>
+										<a href=<?= base_url('main/barang') ?> style="text-decoration: none;"> temukan barang </a>
 										kemudian masukkan ciri-ciri dan informasi mengenai barang Anda yang hilang. Sebelum submit Anda juga perlu
 										menverifikasi bahwa barang tersebut adalah benar barang Anda.
 										
@@ -139,7 +139,7 @@
 									data-parent="#accordionExample">
 									<div class="card-body">
 										Jika Anda menemukan barang, Anda dapat melaporkan barang tersebut pada halaman
-										<a href="temukan-barang.html" style="text-decoration: none;"> temukan barang </a>
+										<a href=<?= base_url('main/found') ?> style="text-decoration: none;"> temukan barang </a>
 										kemudian cocokkan apakah barang yang Anda temukan adalah benar. Setelah itu klik tombol "Saya menemukan"
 										dan tuliskan informasi mengenai barang yang Anda temukan dan tunggu sampai pemilik mengonfirmasi bahwa barang
 										tersebut adalah benar barangnya yang hilang. Setelah itu Anda dapat melakukan perbincangan secara pribadi mengenai tempat

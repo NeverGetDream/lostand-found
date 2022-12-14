@@ -35,7 +35,7 @@
         <?php
           if(!empty($this->session->userdata['auth_data'])){
             echo '
-              <li><a href="'.base_url() .'main/temukan" class="active">TEMUKAN BARANG</a></li>
+              <li><a href="'.base_url() .'main/barang" class="active">TEMUKAN BARANG</a></li>
             ';
           }
         ?>

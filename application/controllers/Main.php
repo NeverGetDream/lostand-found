@@ -84,7 +84,7 @@ class Main extends CI_Controller {
     public function FoundInput(){
         $this->load->model('M_Main');
         $this->M_Main->TambagBarangHilang();
-        redirect('main/temukan');
+        redirect('main/barang');
     }
 }
 ?>

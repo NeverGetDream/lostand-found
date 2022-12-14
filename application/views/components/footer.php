@@ -20,7 +20,7 @@
     <div class="page-one">
       <div class="box">
         <figure>
-          <a href="#">
+          <a href=<?= base_url('main') ?>>
             <img src="<?= base_url('assets/'); ?>img/footer-logo.png" alt="Lost and found">
           </a>
         </figure>
@@ -30,12 +30,12 @@
         <?php
           if(!empty($this->session->userdata['auth_data'])){
             echo '
-              <a href="'.base_url() .'main/temukan" class="active">Temukan Barang</a>
+              <a href="'.base_url() .'main/barang" class="active">Temukan Barang</a>
             ';
           }
         ?>
-          <a class="">Tentang kami</a>
-          <a class="">Hubungi kami</a>
+          <a href=<?= base_url('main/tentang') ?> class="active">Tentang Kami</a>
+          <a href=<?= base_url('main/hubungi') ?> class="active">Hubungi Kami</a>
         </div>
       </div>
       <div class="box">
@@ -48,10 +48,12 @@
         </div>
       </div>
     </div>
-    <div class="page-two">
-      <small>&copy; 2022 <b>LOST AND FOUND</b> - PT. Kerja Kelompok Sukses</small>
-    </div>
-  </footer>
+    <a href=<?= base_url('main/hubungi') ?> class="active" style="text-decoration: none;">
+      <div class="page-two">
+        <small>&copy; 2022 <b>LOST AND FOUND</b> - PT. Kerja Kelompok Sukses</small>
+      </div>
+    </a>
+    </footer>
 </body>
 
 </html>
