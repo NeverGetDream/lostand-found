@@ -102,7 +102,7 @@
 
                                         <p class="mb-5 pb-lg-2" style="color: #393f81">
                                             Tidak tau apa yang Anda lakukan?
-                                            <a href="help.html" style="color: #393f81"> Help!</a>
+                                            <a href=<?= base_url('main/help'); ?> style="color: #393f81"> Help!</a>
                                         </p>
                                     </div>
                                 </div>

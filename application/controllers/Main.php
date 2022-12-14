@@ -25,7 +25,7 @@ class Main extends CI_Controller {
         $this->load->view('components/footer.php');
 	}
     
-    public function temukan(){
+    public function barang(){
         if(empty($this->session->userdata['auth_data'])){
             $this->session->set_flashdata(
                 'message',
