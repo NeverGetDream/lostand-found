@@ -53,10 +53,10 @@
           }
           else{
             echo '
-              <!-- Logout -->
               <li>
-                <h4 id="title_name active" style="color: #F9A826; padding-top: 32px; font-size: 20px; margin-right: 20px; margin-left: 20px;">Halo, '. $this->session->userdata['auth_data']['first_name'] .'</h4>
+                <h4 id="title_name" style="color: #F9A826; padding-top: 32px; font-size: 20px; margin-right: 20px; margin-left: 20px;">Halo, '. $this->session->userdata['auth_data']['first_name'] .'</h4>
               </li>
+              <!-- Logout -->
               <li>
                 <a href="'. base_url() .'auth/logout" class="masuk" id="quit">LOGOUT</a>
               </li>
