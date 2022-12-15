@@ -1,6 +1,6 @@
 <body>
     <div>
-        <div class="container section-mt">
+        <div class="container section-mt mb-2">
             <div class="row">
                 <div class="col-sm-12 text-mckup">
                     <div class="mt-5 mb-2">
@@ -22,7 +22,7 @@
                                     <img src="<?= base_url('assets/'); ?>img/found.png" alt="FOUND" width="400px" style="float: left;">
                                     <h2 class="mt-1 head-color" style="font-weight: 900; text-align: center;">FOUND</h2>
                                 </a>
-                                <p style="text-align: center;">Laporkan barang yang Anda temukan hingga sampai pada pemilik aslinya.</p>
+                                <p style="text-align: center;">Laporkan barang yang Anda temukan!</p>
                             </div>
                         </div>
                     </div>

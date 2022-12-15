@@ -60,10 +60,14 @@
                                         <div class="form-outline mb-4 col-sm-12">
                                             <label class="form-label" for="kategori">Kategori Barang</label>
                                             <select name="kategori" class="form-select form-select-lg">
-                                                <option value="sulsel">Dompet</option>
-                                                <option value="sulteng">HP</option>
-                                                <option value="sulbar">Laptop</option>
-                                                <option value="sulut">Kunci Motor</option>
+                                                <?php
+                                                    foreach($kat as $k){
+                                                        $kategori = $k['kategori'];
+                                                        echo '
+                                                            <option value="'. $kategori .'">'. $kategori .'</option>
+                                                        ';
+                                                    }
+                                                ?>
                                             </select>
                                         </div>
 
@@ -81,10 +85,14 @@
                                             <div class="form-outline mb-4 col-sm-6">
                                                 <label class="form-label" for="provinsi">Provinsi</label>
                                                 <select name="provinsi" class="form-select form-select-lg">
-                                                    <option value="Sulawesi Selatan">Sulawesi Selatan</option>
-                                                    <option value="Sulawesi Tengah">Sulawesi Tengah</option>
-                                                    <option value="Sulawesi Barat">Sulawesi Barat</option>
-                                                    <option value="Sulawesi Utara">SUlawesi Utara</option>
+                                                    <?php
+                                                        foreach($prov as $p){
+                                                            $row = $p['provinsi'];
+                                                            echo '
+                                                                <option value="'. $row .'">'. $row .'</option>
+                                                            ';
+                                                        }
+                                                    ?>
                                                 </select>
                                             </div>
                                             <div class="form-outline mb-4 col-sm-6">

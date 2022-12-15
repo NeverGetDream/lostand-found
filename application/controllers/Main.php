@@ -72,9 +72,14 @@ class Main extends CI_Controller {
             redirect('auth');
             return;
         }
+        $this->load->model('M_Main');
+        $prov = $this->M_Main->getprov();
+        $kategori = $this->M_Main->getkategori();
+        $data['prov'] = $prov;
+        $data['kat'] = $kategori;
         $data['title'] = 'Menemukan Barang | LostAndFound';
         $this->load->view('components/navbar.php',$data);
-        $this->load->view('main/sub_temukan/found');
+        $this->load->view('main/sub_temukan/found', $data);
         // $this->load->view('components/footer.php');
     }
 

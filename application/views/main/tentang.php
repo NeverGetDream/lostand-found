@@ -86,14 +86,14 @@
         <img src="<?= base_url('assets/'); ?>img/p2.png" class="row-img" alt="security" />
         <p class="desc-name">Zaedil Febriansyah</p>
         <p class="desc-paraf">
-          Design web,COO
+          WEB Design & COO
         </p>
       </div>
       <div class="col-sm-6">
         <img src="<?= base_url('assets/'); ?>img/p1.png" class="row-img" alt="security" />
         <p class="desc-name">Azwar Meizia Kusumah</p>
         <p class="desc-paraf">
-          Design web,CEO
+          WEB Design & CEO
         </p>
       </div>
     </div>

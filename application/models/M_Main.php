@@ -60,4 +60,18 @@ class M_Main extends CI_Model {
         $data = $dataraw->result_array();
         return $data;
     }
+
+    public function getprov(){
+        $get = "SELECT provinsi FROM prov";
+        $dataraw = $this->db->query($get);
+        $data = $dataraw->result_array();
+        return $data;
+    }
+
+    public function getkategori(){
+        $get = "SELECT kategori FROM kategori";
+        $rawdata = $this->db->query($get);
+        $data = $rawdata->result_array();
+        return $data;
+    }
 }
