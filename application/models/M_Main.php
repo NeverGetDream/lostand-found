@@ -32,22 +32,32 @@ class M_Main extends CI_Model {
         $raw = $this->db->query($query);
         $id_arr = $raw->result_array();
         $id = $id_arr[0]['id_barang'];
+        
+        // New name
+        $format = '.jpg';
+        $newimgname = $id.$format;
 
         // Update nama gambar
-        $update_img = "UPDATE barang_hilang SET img_name='$id' WHERE id_barang=$id";
+        $update_img = "UPDATE barang_hilang SET img_name='$newimgname' WHERE id_barang=$id";
         $this->db->query($update_img);
         
         // Uplod file/image
         $this->load->helper('form');
         // Upload configuration
-        $config['upload_path'] = './image';
+        $config['upload_path'] = './image/barang/hilang';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size'] = '2048000';
-        $config['file_name'] = $id;
+        $config['file_name'] = $newimgname;
         // Adding config
         $this->load->library('upload', $config);
         // Uploading file
         $this->upload->do_upload('image');
     }
 
+    public function getLost(){
+        $getdata = "SELECT * FROM barang_hilang";
+        $dataraw = $this->db->query($getdata);
+        $data = $dataraw->result_array();
+        return $data;
+    }
 }

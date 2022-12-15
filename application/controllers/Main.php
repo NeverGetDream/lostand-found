@@ -9,16 +9,14 @@ class Main extends CI_Controller {
         $this->load->library('session');
     }
 
-	public function index()
-	{
+	public function index(){
         $data['title'] = 'Home | LostandFound';
         $this->load->view('components/navbar.php',$data);
 		$this->load->view('main/home');
         $this->load->view('components/footer.php');
 	}
 
-    public function hubungi()
-	{
+    public function hubungi(){
         $data['title'] = 'Hubungi | LostandFound';
         $this->load->view('components/navbar.php', $data);
 		$this->load->view('main/hubungi');
@@ -53,13 +51,27 @@ class Main extends CI_Controller {
             redirect('auth');
             return;
         }
+        $this->load->model('M_Main');
+        $databarang = $this->M_Main->getlost();
         $data['title'] = 'Kehilangan Barang | LostAndFound';
+        $data['barang'] = $databarang;
+
         $this->load->view('components/navbar.php',$data);
-        $this->load->view('main/sub_temukan/lost');
+        $this->load->view('main/sub_temukan/lost', $data);
         $this->load->view('components/footer.php');
     }
 
     public function found(){
+        if(empty($this->session->userdata['auth_data'])){
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-danger" role="alert">
+                Silahkan login terlebih dahulu!
+                </div>'
+            );
+            redirect('auth');
+            return;
+        }
         $data['title'] = 'Menemukan Barang | LostAndFound';
         $this->load->view('components/navbar.php',$data);
         $this->load->view('main/sub_temukan/found');

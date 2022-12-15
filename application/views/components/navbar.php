@@ -52,6 +52,7 @@
             ';
           }
           else{
+            $profile_pict = $this->session->userdata['auth_data']['image'];
             echo '
               <li>
                 <h4 id="title_name" style="color: #F9A826; padding-top: 32px; font-size: 20px; margin-right: 20px; margin-left: 20px;">Halo, '. $this->session->userdata['auth_data']['first_name'] .'</h4>
