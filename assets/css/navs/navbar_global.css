@@ -52,6 +52,12 @@ header img {
     background-color: #F9A826;
     border: 2px solid #F9A826;
 }
+
+.home, .bantuan, .tentang, .barang, .hubungi {
+    color:#fff !important;
+    background-color: #F9A826 !important;
+}
+
 .nav-bar .register{
     color: #F9A826;
     background-color: #fff;

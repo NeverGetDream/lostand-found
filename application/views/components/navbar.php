@@ -39,17 +39,24 @@
     <nav class="nav-bar">
       <ul>
         <!-- Paging -->
-        <li><a href=<?= base_url(''); ?> class="active">HOME</a></li>
+        <li><a href=<?= base_url(''); ?> class="active <?php if($status == 'home'){ echo $status; } ?>">HOME</a></li>
         <?php
           if(!empty($this->session->userdata['auth_data'])){
-            echo '
+            if($status == 'barang'){
+              echo '
+                <li><a href="'.base_url() .'main/barang" class="active barang">TEMUKAN BARANG</a></li>
+              ';
+            }
+            else{
+              echo '
               <li><a href="'.base_url() .'main/barang" class="active">TEMUKAN BARANG</a></li>
-            ';
+              ';
+            }
           }
         ?>
-        <li><a href=<?= base_url('main/help'); ?> class="active">BANTUAN</a></li>
-        <li><a href=<?= base_url('main/tentang'); ?> class="active">TENTANG KAMI</a></li>
-        <li><a href=<?= base_url('main/hubungi'); ?> class="active">HUBUNGI KAMI</a></li>
+        <li><a href=<?= base_url('main/help'); ?> class="active <?php if($status == 'bantuan' ){ echo $status; } ?>">BANTUAN</a></li>
+        <li><a href=<?= base_url('main/tentang'); ?> class="active <?php if($status == 'tentang' ){ echo $status; } ?>">TENTANG KAMI</a></li>
+        <li><a href=<?= base_url('main/hubungi'); ?> class="active <?php if($status == 'hubungi' ){ echo $status; } ?>">HUBUNGI KAMI</a></li>
 
         <?php
           if(empty($this->session->userdata['auth_data'])){

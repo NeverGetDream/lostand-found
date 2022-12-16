@@ -11,6 +11,7 @@ class Main extends CI_Controller {
 
 	public function index(){
         $data['title'] = 'Home | LostandFound';
+        $data['status'] = 'home';
         $this->load->view('components/navbar.php',$data);
 		$this->load->view('main/home');
         $this->load->view('components/footer.php');
@@ -18,6 +19,7 @@ class Main extends CI_Controller {
 
     public function hubungi(){
         $data['title'] = 'Hubungi | LostandFound';
+        $data['status'] = 'hubungi';
         $this->load->view('components/navbar.php', $data);
 		$this->load->view('main/hubungi');
         $this->load->view('components/footer.php');
@@ -35,6 +37,7 @@ class Main extends CI_Controller {
             return;
         }
         $data['title'] = 'Temukan Barang | LostAndFound';
+        $data['status'] = 'barang';
         $this->load->view('components/navbar.php',$data);
         $this->load->view('main/temukan');
         $this->load->view('components/footer.php');
@@ -54,6 +57,7 @@ class Main extends CI_Controller {
         $this->load->model('M_Main');
         $databarang = $this->M_Main->getlost();
         $data['title'] = 'Kehilangan Barang | LostAndFound';
+        $data['status'] = 'barang';
         $data['barang'] = $databarang;
 
         $this->load->view('components/navbar.php',$data);
@@ -78,13 +82,14 @@ class Main extends CI_Controller {
         $data['prov'] = $prov;
         $data['kat'] = $kategori;
         $data['title'] = 'Menemukan Barang | LostAndFound';
+        $data['status'] = 'barang';
         $this->load->view('components/navbar.php',$data);
         $this->load->view('main/sub_temukan/found', $data);
         // $this->load->view('components/footer.php');
     }
 
-    public function help()
-	{
+    public function help(){
+        $data['status'] = 'bantuan';
         $data['title'] = 'Bantuan | LostandFound';
         $this->load->view('components/navbar.php',$data);
 		$this->load->view('main/help');
@@ -92,6 +97,7 @@ class Main extends CI_Controller {
 	}
 
     public function tentang(){
+        $data['status'] = 'tentang';
         $data['title'] = 'Tentang | LostandFound';
         $this->load->view('components/navbar.php',$data);
 		$this->load->view('main/tentang');
