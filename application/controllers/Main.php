@@ -48,7 +48,7 @@ class Main extends CI_Controller {
             $this->session->set_flashdata(
                 'message',
                 '<div class="alert alert-danger" role="alert">
-                Silahkan login terlebih dahulu!
+                    Silahkan login terlebih dahulu!
                 </div>'
             );
             redirect('auth');
