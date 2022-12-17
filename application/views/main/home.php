@@ -31,7 +31,7 @@
   <div class="container mt-5 container-m">
     <div class="row">
       <div class="col-sm-6">
-        <img src="assets/img/mockup-ae.png" class="mckup" alt="contoh" />
+        <img src="<?= base_url('assets/img/') ?>mockup-ae.png" class="mckup" alt="contoh" />
       </div>
       <div class="col-sm-6 text-mckup">
         <h2 style="font-weight: 900">
@@ -56,7 +56,7 @@
       </h2>
       <div class="row roww-m">
         <div class="col-sm-4">
-          <img src="assets/img/security.png" class="row-img" alt="security" />
+          <img src="<?= base_url('assets/img/') ?>security.png" class="row-img" alt="security" />
           <p class="desc-name">Keamanan Terjamin</p>
           <p class="desc-paraf">
             Temukan barang dan titipkan di LOST AND FOUND, barang akan aman
@@ -64,7 +64,7 @@
           </p>
         </div>
         <div class="col-sm-4">
-          <img src="assets/img/support.png" class="row-img" alt="security" />
+          <img src="<?= base_url('assets/img/') ?>support.png" class="row-img" alt="security" />
           <p class="desc-name">Bantuan Non-stop</p>
           <p class="desc-paraf">
             Bantuan Non-stop memungkin kan anda untuk menghubungi kami, dan
@@ -72,7 +72,7 @@
           </p>
         </div>
         <div class="col-sm-4">
-          <img src="assets/img/location.png" class="row-img" alt="security" />
+          <img src="<?= base_url('assets/img/') ?>location.png" class="row-img" alt="security" />
           <p class="desc-name">Kemudahan Pencarian</p>
           <p class="desc-paraf">
             Kemudahan untuk pencarian, terdapat peta penitipan barang hilang
@@ -114,7 +114,7 @@
           <button class="button-more">Mulai Sekarang</button>
         </div>
         <div class="col-sm-6 second">
-          <img src="assets/img/start.png" class="mckup" alt="contoh" />
+          <img src="<?= base_url('assets/img/') ?>start.png" class="mckup" alt="contoh" />
         </div>
       </div>
     </div>
