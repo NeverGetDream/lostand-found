@@ -30,7 +30,7 @@ class Main extends CI_Controller {
             $this->session->set_flashdata(
                 'message',
                 '<div class="alert alert-danger" role="alert">
-                Silahkan login terlebih dahulu!
+                    Silahkan login terlebih dahulu!
                 </div>'
             );
             redirect('auth');
@@ -64,13 +64,21 @@ class Main extends CI_Controller {
         $this->load->view('main/sub_temukan/lost', $data);
         $this->load->view('components/footer.php');
     }
+    
+    public function lost_($id){
+        // echo $id; die();
+    }
+
+    public function lostdetail($id){
+        // echo $id; die();
+    }
 
     public function found(){
         if(empty($this->session->userdata['auth_data'])){
             $this->session->set_flashdata(
                 'message',
                 '<div class="alert alert-danger" role="alert">
-                Silahkan login terlebih dahulu!
+                    Silahkan login terlebih dahulu!
                 </div>'
             );
             redirect('auth');

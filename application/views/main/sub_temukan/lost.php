@@ -20,10 +20,10 @@
                                         echo '
                                             <div class="col-1 col-sm-6 col-md-3 mb-2">
                                                 <div class="card body-text">
-                                                    <a class="img-card" href="">
+                                                    <a class="img-card" href="' .base_url('image/barang/hilang/').$row['img_name'] .'" target="blank">
                                                         <img src="' .base_url('image/barang/hilang/').$row['img_name'] .'" />
                                                     </a>
-                                                    <a href="" class="card-main-text body-text">
+                                                    <a href="'. base_url('/main/lostdetail/').$row['id_barang'] .'" class="card-main-text body-text">
                                                         <div class="card-content">
                                                             <h4 class="card-title" id="card-head">'. $row['nama_barang'] .'</h4>
                                                             <p class="card-tittle card-row">Lokasi : '. $row['lokasi'] .'</p>
@@ -31,7 +31,7 @@
                                                         </div>
                                                     </a>
                                                     <div class="card-read-more" id="read">
-                                                        <a href="" class="btn btn-link btn-block">Ini Punyaku!</a>
+                                                        <a href="'. base_url('/main/lost_/').$row['id_barang'] .'" class="btn btn-link btn-block">Ini Punyaku!</a>
                                                     </div>
                                                 </div>
                                             </div>

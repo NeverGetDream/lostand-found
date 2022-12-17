@@ -54,8 +54,13 @@ header img {
 }
 
 .home, .bantuan, .tentang, .barang, .hubungi {
-    color:#fff !important;
-    background-color: #F9A826 !important;
+    background-color: #f9a826 !important;
+    color: #fff !important;
+    font-style: oblique;
+}
+
+.home:hover, .bantuan:hover, .tentang:hover, .barang:hover, .hubungi:hover{
+    color: #fff !important;
 }
 
 .nav-bar .register{
