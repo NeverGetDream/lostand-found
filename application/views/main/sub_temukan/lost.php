@@ -32,6 +32,7 @@
                                                         <p class="card-row">' . $desc . ' ....</p>
                                                     </div>
                                                 </a>
+                                                <button class="btn btn-more-info" >Selengkapnya...</button>
                                                 <div class="card-read-more" id="read">
                                                     <a href="' . base_url('/main/lost_/') . $row['id_barang'] . '" class="btn btn-link btn-block">Ini Punyaku!</a>
                                                 </div>

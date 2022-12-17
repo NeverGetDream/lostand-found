@@ -141,6 +141,7 @@ h1.heading {
 
 /* For Button Modal tapi gagal */
 .btn-more-info{
+  color: #F9A826 !important;
   --bs-btn-color: #fff;
   --bs-btn-bg: #fff !important;
   /* --bs-btn-border-color: #F9A826 !important; */
