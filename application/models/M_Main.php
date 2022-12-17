@@ -74,4 +74,8 @@ class M_Main extends CI_Model {
         $data = $rawdata->result_array();
         return $data;
     }
+
+    public function getlostdetail($id_barang){
+
+    }
 }

@@ -69,10 +69,6 @@ class Main extends CI_Controller {
         // echo $id; die();
     }
 
-    public function lostdetail($id){
-        // echo $id; die();
-    }
-
     public function found(){
         if(empty($this->session->userdata['auth_data'])){
             $this->session->set_flashdata(
