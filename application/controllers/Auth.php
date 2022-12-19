@@ -71,8 +71,9 @@ class Auth extends CI_Controller{
     public function register(){
         $this->form_validation->set_rules('fname', 'Nama Depan', 'required|trim');
         $this->form_validation->set_rules('bname', 'Nama belakang', 'required|trim');
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[users.email]', ['is_unique' => 'Email already registered']);
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[users.email]', ['is_unique' => 'E-Mail telah terdaftar']);
         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[5]', ['min_length' => 'Password terlalu pendek']);
+        $this->form_validation->set_rules('no_hp', 'No. Handphone', 'required');
         $this->form_validation->set_rules('provinsi', 'Provinsi', 'required');
         $this->form_validation->set_rules('kota', 'Kota', 'required');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');

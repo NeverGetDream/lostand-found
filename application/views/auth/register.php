@@ -28,7 +28,7 @@
                                             </div>
                                             <div class="form-outline mb-4 col-sm-6">
                                                 <label class="form-label" for="bname">Nama Belakang</label>
-                                                <input type="text" id="bname" class="form-control form-control-lg" placeholder="Belakang" name="bname" value=<?= set_value('bname') ?>>
+                                                <input type="text" id="bname" class="form-control form-control-lg" placeholder="Nama Belakang" name="bname" value=<?= set_value('bname') ?>>
                                                 <small class="text-danger"><?= form_error('bname') ?></small>
                                             </div>
                                         </div>
@@ -46,7 +46,7 @@
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <label class="form-label" for="number">No. Handphone</label>
+                                            <label class="form-label" for="handphone">No. Handphone</label>
                                             <input type="text" id="no_hp" class="form-control form-control-lg" placeholder="No. Handphone" name="no_hp" />
                                             <small class="text-danger"><?= form_error('no_hp') ?></small>
                                         </div>
@@ -54,7 +54,7 @@
                                         <div class="row">
                                             <div class="form-outline mb-4 col-sm-6">
                                                 <label class="form-label" for="provinsi">Provinsi</label>
-                                                <select name="kategori" class="form-select form-select-lg">
+                                                <select name="provinsi" class="form-select form-select-lg">
                                                     <?php
                                                         foreach($prov as $p){
                                                             $provinsi = $p['provinsi'];
