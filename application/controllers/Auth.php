@@ -39,14 +39,8 @@ class Auth extends CI_Controller{
                     if ($user['role_id'] == 1) {
                         redirect('admin');
                     }
-                    elseif($user['role_id' == 2]) {
-                        redirect('main');
-                    }
                     else{
-                        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                        Terjadi kesalahan saat melakukan login!
-                        </div>');
-                        redirect('auth');
+                        redirect('main');
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">

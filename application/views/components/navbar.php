@@ -73,7 +73,7 @@
                 <h4 id="title_name" style="color: #F9A826; padding-top: 32px; font-size: 20px; margin-right: 20px; margin-left: 20px;">Halo, '. $this->session->userdata['auth_data']['first_name'] .'</h4>
               </li>
               <li>
-                <img src="'. base_url('assets/img/profile_img/').$profile_pict .'" alt="Profile" class="profile-icon">
+                <img src="'. base_url('assets/img/profile_img/').$profile_pict .'" alt="Profile" class="profile-icon" style="border-radius: 50%;">
               </li>
               <!-- Logout -->
               <li>

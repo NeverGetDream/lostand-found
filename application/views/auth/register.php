@@ -17,7 +17,7 @@
                                         </div>
 
                                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
-                                            Daftar akun
+                                            Daftarkan Diri Anda di LostAndFound
                                         </h5>
 
                                         <div class="row">
