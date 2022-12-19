@@ -32,15 +32,21 @@ class Auth extends CI_Controller{
             if ($user['is_active'] == 1) {
                 if (password_verify($password, $user['password'])) {
                     $this->session->set_userdata('auth_data', $user);
-                    // View raw data
                     // $data = $this->session->userdata['auth_data'];
                     // $row = $user -> fetch_assoc();
                     // echo '<pre>'; print_r($data); echo '</pre>'; die();
 
                     if ($user['role_id'] == 1) {
                         redirect('admin');
-                    } else {
+                    }
+                    elseif($user['role_id' == 2]) {
                         redirect('main');
+                    }
+                    else{
+                        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+                        Terjadi kesalahan saat melakukan login!
+                        </div>');
+                        redirect('auth');
                     }
                 } else {
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
@@ -72,9 +78,13 @@ class Auth extends CI_Controller{
         $this->form_validation->set_rules('alamat', 'Alamat', 'required');
 
         if ($this->form_validation->run() == false) {
+            $prov_raw = $this->db->get('prov');
+            $p = $prov_raw->result_array();
+            $data['prov'] = $p;
+
             $data['title'] = 'Register | LostaAndFound';
             $this->load->view('components/auth_header', $data);
-            $this->load->view('auth/register');
+            $this->load->view('auth/register', $data);
         } else {
             $data = [
                 'first_name' => htmlspecialchars($this->input->post('fname', true)),

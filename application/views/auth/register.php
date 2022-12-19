@@ -44,10 +44,26 @@
                                             <input type="password" id="password" class="form-control form-control-lg" placeholder="Password" name="password" />
                                             <small class="text-danger"><?= form_error('password') ?></small>
                                         </div>
+
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="number">No. Handphone</label>
+                                            <input type="text" id="no_hp" class="form-control form-control-lg" placeholder="No. Handphone" name="no_hp" />
+                                            <small class="text-danger"><?= form_error('no_hp') ?></small>
+                                        </div>
+
                                         <div class="row">
                                             <div class="form-outline mb-4 col-sm-6">
                                                 <label class="form-label" for="provinsi">Provinsi</label>
-                                                <input type="text" id="provinsi" class="form-control form-control-lg" placeholder="Provinsi" name="provinsi" value=<?= set_value('provinsi') ?>>
+                                                <select name="kategori" class="form-select form-select-lg">
+                                                    <?php
+                                                        foreach($prov as $p){
+                                                            $provinsi = $p['provinsi'];
+                                                            echo '
+                                                                <option value="'. $provinsi .'">'. $provinsi .'</option>
+                                                            ';
+                                                        }
+                                                    ?>
+                                                </select>
                                                 <small class="text-danger"><?= form_error('provinsi') ?></small>
                                             </div>
                                             <div class="form-outline mb-4 col-sm-6">

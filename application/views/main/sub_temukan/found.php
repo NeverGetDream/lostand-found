@@ -11,9 +11,9 @@
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-xl-10">
                     <form action=<?= base_url('main/FoundInput'); ?> method="POST" enctype="multipart/form-data">
+                        <!-- Form -->
                         <div class="card mb-4" style="border-radius: 1rem">
                             <div class="row g-0">
-                                <!-- Form -->
                                 <!-- Image Upload Section -->
                                 <div class="col-md-6 col-lg-5 d-none d-md-block">
                                     <div class="Neon Neon-theme-dragdropbox pt-7 d-block mx-auto" style="padding-left: 30px;">
