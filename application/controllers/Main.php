@@ -38,11 +38,12 @@ class Main extends CI_Controller {
         }
         $data['title'] = 'Temukan Barang | LostAndFound';
         $data['status'] = 'barang';
-        $this->load->view('components/navbar.php',$data);
+        $this->load->view('components/navbar',$data);
+        $this->load->view('components/caribarang_head');
         $this->load->view('main/temukan');
         $this->load->view('components/footer.php');
     }
-    
+
     public function lost(){
         if(empty($this->session->userdata['auth_data'])){
             $this->session->set_flashdata(
