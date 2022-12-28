@@ -12,31 +12,30 @@
     <script src="<?= base_url('assets/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
 </head>
 
-<style>
-    .filter-select{
-        border-color: #f9a826 !important;
-    }
-</style>
-
 <body>
     <div style="padding-top: 120px; padding-bottom: 20px;" class="container">
         <div class="row container">
             <!-- Col1 -->
-            <div class="col-md-12 col-sm-12 col-lg-9" style="padding-bottom: 8px;">
+            <div class="col-md-8 col-sm-8 col-lg-7" style="padding-bottom: 8px;">
                 <div class="container-fluid">
                     <form class="d-flex" method="GET">
-                        <input class="form-control me-2" type="search" placeholder="Cari barang Anda di sini" aria-label="Search" style="border-color: #f9a826;" style="width: 60%;"/>
-                        <select name="id_kat" class="form-select form-select-md me-2 filter-select" style="width: 20%;">
-                            <option value="1">Kat 1</option>
-                        </select>
-                        <select name="id_prov" class="form-select form-select-md me-2 filter-select" style="width: 20%;">
-                            <option value="1">Prov 1</option>
-                        </select>
-                        <button class="btn btn-outline-warning" type="submit">Cari</button>
+                        <input class="form-control me-4" type="search" placeholder="Cari barang Anda di sini" aria-label="Search" style="border-color: #f9a826;" />
+                        <button class="btn btn-outline-warning" type="submit">Search</button>
                     </form>
                 </div>
             </div>
             <!-- Col2 -->
+            <div class="col-md-4 col-sm-4 col-lg-2" style="padding-right: 50px;">
+
+
+                <div class="dropdown">
+                    <button class="btn btn-warning dropdown-toggle btn btn-warning" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Semua Kategori</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Col3 -->
             <link href="<?= base_url('assets/barang/css/') ?>uploadstyle.css" rel="stylesheet">
             <div class="col-md-12 col-sm-12 col-lg-3">
                 <div style="padding-top: 6px; padding-left: 10px;">
