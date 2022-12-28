@@ -18,29 +18,27 @@
             <!-- Col1 -->
             <div class="col-md-8 col-sm-8 col-lg-7" style="padding-bottom: 8px;">
                 <div class="container-fluid">
-                    <form class="d-flex" method="GET">
-                        <input class="form-control me-4" type="search" placeholder="Cari barang Anda di sini" aria-label="Search" style="border-color: #f9a826;" />
+                    <form class="d-flex">
+                        <input class="form-control me-4" type="search" placeholder="Search" aria-label="Search" style="border-color: #f9a826;"/>
                         <button class="btn btn-outline-warning" type="submit">Search</button>
                     </form>
                 </div>
             </div>
             <!-- Col2 -->
-            <div class="col-md-4 col-sm-4 col-lg-2" style="padding-right: 50px;">
-
-
+            <div class="col-md-4 col-sm-4 col-lg-1" style="padding-right: 50px;">
                 <div class="dropdown">
                     <button class="btn btn-warning dropdown-toggle btn btn-warning" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Semua Kategori</a>
+                        <a class="dropdown-item" href="#">Kategori 1</a>
                     </div>
                 </div>
             </div>
             <!-- Col3 -->
             <link href="<?= base_url('assets/barang/css/') ?>uploadstyle.css" rel="stylesheet">
-            <div class="col-md-12 col-sm-12 col-lg-3">
+            <div class="col-md-12 col-sm-12 col-lg-4">
                 <div style="padding-top: 6px; padding-left: 10px;">
                     <p id="uptext">
-                        Menemukan barang?
+                        Menemukan barang atau lainnya?
                         <a href="<?= base_url('main/found') ?>" id="upfile">UPLOAD</a>
                     </p>
                 </div>
@@ -59,19 +57,19 @@
                         <div class="row">
                             <!-- disini nanti looping -->
                             <?php
-                            foreach ($barang as $row) {
+                            foreach($barang as $row){
                                 $des = substr($row['des_barang'], 0, 45);
                                 echo '
                                     <div class="col-1 col-sm-6 col-md-4 col-lg-3 mb-2">
                                         <div class="card body-text">
-                                            <a class="img-card" href="' . base_url('image/barang/hilang/') . $row['img_name'] . '" target="blank">
-                                                <img src="' . base_url('image/barang/hilang/') . $row['img_name'] . '" />
+                                            <a class="img-card" href="'. base_url('image/barang/hilang/').$row['img_name'] .'" target="blank">
+                                                <img src="'. base_url('image/barang/hilang/').$row['img_name'] .'" />
                                             </a>
                                             <a href="" class="card-main-text body-text open-modal" style="height: 170px">
                                                 <div class="card-content">
-                                                    <h4 class="card-title" id="card-head">' . $row['nama_barang'] . '</h4>
-                                                    <p class="card-tittle card-row">Lokasi : ' . $row['lokasi'] . '</p>
-                                                    <p class="card-row">' . $des . '.....</p>
+                                                    <h4 class="card-title" id="card-head">'. $row['nama_barang'] .'</h4>
+                                                    <p class="card-tittle card-row">Lokasi : '. $row['lokasi'] .'</p>
+                                                    <p class="card-row">'. $des .'.....</p>
                                                 </div>
                                             </a>
                                             <button class="btn btn-more-info">Selengkapnya...</button>
