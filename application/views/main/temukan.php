@@ -28,9 +28,8 @@
             <div class="col-md-4 col-sm-4 col-lg-1" style="padding-right: 50px;">
                 <div class="dropdown">
                     <button class="btn btn-warning dropdown-toggle btn btn-warning" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
-
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Kat 1</a>
+                        <a class="dropdown-item" href="#">Kategori 1</a>
                     </div>
                 </div>
             </div>
@@ -40,7 +39,7 @@
                 <div style="padding-top: 6px; padding-left: 10px;">
                     <p id="uptext">
                         Menemukan barang atau lainnya?
-                        <a href="<?= base_url('main/upload'); ?>" id="upfile">UPLOAD</a>
+                        <a href="<?= base_url('main/found') ?>" id="upfile">UPLOAD</a>
                     </p>
                 </div>
             </div>
@@ -57,25 +56,32 @@
                     <div class="container">
                         <div class="row">
                             <!-- disini nanti looping -->
-                            <!-- Card -->
-                            <div class="col-1 col-sm-6 col-md-4 col-lg-3 mb-2">
-                                <div class="card body-text">
-                                    <a class="img-card" href="" target="blank">
-                                        <img src="" />
-                                    </a>
-                                    <a href="" class="card-main-text body-text open-modal">
-                                        <div class="card-content">
-                                            <h4 class="card-title" id="card-head">Barang 1</h4>
-                                            <p class="card-tittle card-row">Lokasi : Lokasi 1</p>
-                                            <p class="card-row">Barang ini blas ajsa igsf.....</p>
+                            <?php
+                            foreach($barang as $row){
+                                $des = substr($row['des_barang'], 0, 45);
+                                echo '
+                                    <div class="col-1 col-sm-6 col-md-4 col-lg-3 mb-2">
+                                        <div class="card body-text">
+                                            <a class="img-card" href="'. base_url('image/barang/hilang/').$row['img_name'] .'" target="blank">
+                                                <img src="'. base_url('image/barang/hilang/').$row['img_name'] .'" />
+                                            </a>
+                                            <a href="" class="card-main-text body-text open-modal" style="height: 170px">
+                                                <div class="card-content">
+                                                    <h4 class="card-title" id="card-head">'. $row['nama_barang'] .'</h4>
+                                                    <p class="card-tittle card-row">Lokasi : '. $row['lokasi'] .'</p>
+                                                    <p class="card-row">'. $des .'.....</p>
+                                                </div>
+                                            </a>
+                                            <button class="btn btn-more-info">Selengkapnya...</button>
+                                            <div class="card-read-more" id="read">
+                                                <a href="#" class="btn btn-link btn-block">INI PUNYAKU!</a>
+                                            </div>
                                         </div>
-                                    </a>
-                                    <button class="btn btn-more-info">Selengkapnya...</button>
-                                    <div class="card-read-more" id="read">
-                                        <a href="#" class="btn btn-link btn-block">INI PUNYAKU!</a>
                                     </div>
-                                </div>
-                            </div>
+                                ';
+                            }
+
+                            ?>
                         </div>
                     </div>
                 </div>

@@ -44,12 +44,12 @@
           if(!empty($this->session->userdata['auth_data'])){
             if($status == 'barang'){
               echo '
-                <li><a href="'.base_url() .'main/barang" class="active barang">TEMUKAN BARANG</a></li>
+                <li><a href="'.base_url().'main/barang" class="active barang">TEMUKAN BARANG</a></li>
               ';
             }
             else{
               echo '
-              <li><a href="'.base_url() .'main/barang" class="active">TEMUKAN BARANG</a></li>
+              <li><a href="'.base_url().'main/barang" class="active">TEMUKAN BARANG</a></li>
               ';
             }
           }

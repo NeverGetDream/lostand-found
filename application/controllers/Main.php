@@ -36,39 +36,20 @@ class Main extends CI_Controller {
             redirect('auth');
             return;
         }
+        // Get data
+        $this->load->model('M_barang');
+        $barang = $this->M_barang->getlost();
+
+        $data['barang'] = $barang;
         $data['title'] = 'Temukan Barang | LostAndFound';
         $data['status'] = 'barang';
+
         $this->load->view('components/navbar',$data);
-        $this->load->view('components/caribarang_head');
-        $this->load->view('main/temukan');
+        $this->load->view('main/temukan', $data);
         $this->load->view('components/footer.php');
     }
 
-    public function lost(){
-        if(empty($this->session->userdata['auth_data'])){
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-danger" role="alert">
-                    Silahkan login terlebih dahulu!
-                </div>'
-            );
-            redirect('auth');
-            return;
-        }
-        $this->load->model('M_Main');
-        $databarang = $this->M_Main->getlost();
-        $data['title'] = 'Kehilangan Barang | LostAndFound';
-        $data['status'] = 'barang';
-        $data['barang'] = $databarang;
-
-        $this->load->view('components/navbar.php',$data);
-        $this->load->view('main/sub_temukan/lost', $data);
-        $this->load->view('components/footer.php');
-    }
     
-    public function lost_($id){
-        // echo $id; die();
-    }
 
     public function found(){
         if(empty($this->session->userdata['auth_data'])){
@@ -84,13 +65,20 @@ class Main extends CI_Controller {
         $this->load->model('M_Main');
         $prov = $this->M_Main->getprov();
         $kategori = $this->M_Main->getkategori();
+
         $data['prov'] = $prov;
         $data['kat'] = $kategori;
-        $data['title'] = 'Menemukan Barang | LostAndFound';
+        $data['title'] = 'Upload Barang | LostAndFound';
         $data['status'] = 'barang';
+
         $this->load->view('components/navbar.php',$data);
-        $this->load->view('main/sub_temukan/found', $data);
-        // $this->load->view('components/footer.php');
+        $this->load->view('main/barang/upbarang.php', $data);
+    }
+
+    public function foundinput(){
+        $this->load->model('M_barang');
+        $this->M_barang->upload();
+        redirect('Main/barang');
     }
 
     public function help(){
@@ -109,10 +97,5 @@ class Main extends CI_Controller {
         $this->load->view('components/footer.php');
 	}
 
-    public function FoundInput(){
-        $this->load->model('M_Main');
-        $this->M_Main->TambagBarangHilang();
-        redirect('main/barang');
-    }
 }
 ?>
