@@ -38,9 +38,12 @@ class Main extends CI_Controller {
         }
         // Get data
         $this->load->model('M_barang');
+        $this->load->model('M_Main');
         $barang = $this->M_barang->getlost();
+        $kat = $this->M_Main->getkategori();
 
         $data['barang'] = $barang;
+        $data['kat'] = $kat;
         $data['title'] = 'Temukan Barang | LostAndFound';
         $data['status'] = 'barang';
 
