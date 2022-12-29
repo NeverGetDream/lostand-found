@@ -22,6 +22,27 @@ class M_barang extends CI_Model {
         $data = $dataraw->result_array();
         return $data;
     }
+    
+    public function getLostSearch($search){
+        $getdata = "SELECT * FROM barang_hilang WHERE nama_barang LIKE '%$search%' OR des_barang LIKE '%$search%'";
+        $dataraw = $this->db->query($getdata);
+        $data = $dataraw->result_array();
+        return $data;
+    }
+
+    public function getLostByKat($id){
+        $getdata = "SELECT * FROM barang_hilang WHERE id_kategori='$id'";
+        $dataraw = $this->db->query($getdata);
+        $data = $dataraw->result_array();
+        return $data;
+    }
+    
+    public function getFilter($id){
+        $get = "SELECT kategori FROM kategori WHERE nomor='$id'";
+        $dataraw = $this->db->query($get);
+        $data = $dataraw->result_array();
+        return $data;
+    }
 
      
     public function upload(){

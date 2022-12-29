@@ -36,12 +36,22 @@ class Main extends CI_Controller {
             redirect('auth');
             return;
         }
-        // Get data
+        // Get data searching
+        $search = $this->input->get('key');
+
+        // Load
         $this->load->model('M_barang');
         $this->load->model('M_Main');
-        $barang = $this->M_barang->getlost();
-        $kat = $this->M_Main->getkategori();
 
+        if(!empty($search)){
+            $barang = $this->M_barang->getLostSearch($search);
+        }
+        else{
+            $barang = $this->M_barang->getlost();
+        }
+        
+        $kat = $this->M_Main->getkategori();
+        
         $data['barang'] = $barang;
         $data['kat'] = $kat;
         $data['title'] = 'Temukan Barang | LostAndFound';
@@ -49,6 +59,35 @@ class Main extends CI_Controller {
 
         $this->load->view('components/navbar',$data);
         $this->load->view('main/temukan', $data);
+        $this->load->view('components/footer.php');
+    }
+
+    public function barang_kat($no_kategori){
+        if(empty($this->session->userdata['auth_data'])){
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-danger" role="alert">
+                    Silahkan login terlebih dahulu!
+                </div>'
+            );
+            redirect('auth');
+            return;
+        }
+        // Get data
+        $this->load->model('M_barang');
+        $this->load->model('M_Main');
+        $barang = $this->M_barang->getlostByKat($no_kategori);
+        $filter = $this->M_barang->getFilter($no_kategori);
+        $kat = $this->M_Main->getkategori();
+
+        $data['k_barang'] = $barang;
+        $data['filter'] = $filter;
+        $data['kat'] = $kat;
+        $data['title'] = 'Temukan Barang | LostAndFound';
+        $data['status'] = 'barang';
+
+        $this->load->view('components/navbar',$data);
+        $this->load->view('main/barang/kat_temukan', $data);
         $this->load->view('components/footer.php');
     }
 

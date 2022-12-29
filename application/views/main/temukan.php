@@ -19,7 +19,7 @@
             <div class="col-md-8 col-sm-8 col-lg-7" style="padding-bottom: 8px;">
                 <div class="container-fluid">
                     <form class="d-flex">
-                        <input class="form-control me-4" type="search" placeholder="Search" aria-label="Search" style="border-color: #f9a826;"/>
+                        <input name="key" class="form-control me-4" type="search" placeholder="Search" aria-label="Search" style="border-color: #f9a826;"/>
                         <button class="btn btn-outline-warning" type="submit">Search</button>
                     </form>
                 </div>
@@ -27,9 +27,17 @@
             <!-- Col2 -->
             <div class="col-md-4 col-sm-4 col-lg-1" style="padding-right: 50px;">
                 <div class="dropdown">
-                    <button class="btn btn-warning dropdown-toggle btn btn-warning" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filter</button>
+                    <button class="btn btn-warning dropdown-toggle btn btn-warning" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Kategori
+                    </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Kategori 1</a>
+                        <?php
+                        foreach($kat as $k){
+                            echo '
+                                <a class="dropdown-item" href="'. base_url('main/barang_kat/').$k['nomor'] .'">'. $k['kategori'] .'</a>
+                            ';
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
