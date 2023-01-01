@@ -67,6 +67,7 @@
                             <?php
                             foreach ($barang as $row) {
                                 $des = substr($row['des_barang'], 0, 25);
+
                                 echo '
                                     <div class="col-1 col-sm-6 col-md-4 col-lg-3 mb-2">
                                         <div class="card body-text">
@@ -81,14 +82,14 @@
                                                     <p class="card-row">' . $des . '.....</p>
                                                 </div>
                                             </a>
-                                            <button class="btn btn-more-info" data-toggle="modal" data-target="#InfoModal">Selengkapnya...</button>
+                                            <button class="btn btn-more-info" data-toggle="modal" data-target="#InfoModal' . $row['id_barang'] . '">Selengkapnya...</button>
                                             <div class="card-read-more" id="read">
                                                 <a href="#" class="btn btn-link btn-block">INI PUNYAKU!</a>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="modal fade" style="margin-top:200px;" id="InfoModal" tabindex="-1" role="dialog" aria-labelledby="SelengkapModal" aria-hidden="true">
+                                    <div class="modal fade" style="margin-top:200px;" id="InfoModal' . $row['id_barang'] . '" tabindex="-1" role="dialog" aria-labelledby="SelengkapModal" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -97,8 +98,12 @@
                                                     <span aria-hidden="true">X</span>
                                                 </button>
                                             </div>
-                                            <div class="modal-body"><p class="card-tittle card-row"> Kategori: ' . $row['kategori'] . '</p>
-                                            <p class="card-tittle card-row">Lokasi : ' . $row['lokasi'] . '</p></div>
+                                            <div class="modal-body">
+                                            <h4 class="card-title" id="card-head">' . $row['nama_barang'] . '</h4>
+                                            <p class="card-tittle card-row"> Kategori: ' . $row['kategori'] . '</p>
+                                            <p class="card-tittle card-row">Lokasi : ' . $row['lokasi'] . '</p>
+                                            <p class="card-tittle card-row">Deskripsi : ' . $row['des_barang'] . '</p>
+                                            </div>
                                             <div class="modal-footer">
                                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Tutup</button>
                                             </div>
