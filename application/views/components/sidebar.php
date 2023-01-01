@@ -12,11 +12,10 @@
           <hr class="sidebar-divider my-0" />
 
           <!-- Nav Item - Dashboard -->
-          <li class="nav-item active">
+          <li class="nav-item">
               <a class="nav-link" href=<?= base_url('admin'); ?>>
                   <i class="fas fa-fw fa-tachometer-alt"></i>
-                  <span>Dashboard</span>
-                </a>
+                  <span>Dashboard</span></a>
           </li>
 
           <!-- Divider -->
@@ -26,14 +25,14 @@
           <div class="sidebar-heading">INFO USER</div>
 
           <!-- Nav Item - Pages Collapse Menu -->
-          <li class="nav-item active">
+          <li class="nav-item ">
               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                  <i class="fas fa-fw fa-user"></i>
-                  <span>Users Management</span>
+                  <i class="fas fa-fw fa-cog"></i>
+                  <span>Mengenai User</span>
               </a>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
-                      <h6 class="collapse-header">Users Data</h6>
+                      <h6 class="collapse-header">Atur User</h6>
                       <a class="collapse-item" href="<?= base_url('admin/listUser'); ?>">List User</a>
                       <a class="collapse-item" href="">Edit User</a>
                   </div>
@@ -44,10 +43,10 @@
           <hr class="sidebar-divider" />
 
           <!-- Heading -->
-          <div class="sidebar-heading">Informasi Barang</div>
+          <div class="sidebar-heading">Addons</div>
 
           <!-- Nav Item - Pages Collapse Menu -->
-          <li class="nav-item active">
+          <li class="nav-item">
               <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                   <i class="fas fa-fw fa-folder"></i>
                   <span>Mengenai Barang</span>
@@ -59,6 +58,28 @@
                       <a class="collapse-item" href="">Barang ditemukan</a>
                   </div>
               </div>
+          </li>
+          <hr class="sidebar-divider" />
+          <div class="sidebar-heading">Admin</div>
+
+          <li class="nav-item">
+              <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                  <i class="fas fa-user fa-fw"></i>
+                  <span>Admin</span>
+              </a>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                  <div class="bg-white py-2 collapse-inner rounded">
+                      <h6 class="collapse-header">Admin</h6>
+                      <a class="collapse-item" href="<?= base_url('admin/profileAdmin') ?>">Profile Admin</a>
+                      <a class="collapse-item" href="<?= base_url('admin/editAdmin') ?>">Change Profile</a>
+                  </div>
+              </div>
+          </li>
+
+          <li class="nav-item">
+              <a class="nav-link" href="<?= base_url('auth/logout'); ?>" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-fw fa-sign-out-alt"></i>
+                  <span>Logout</span></a>
           </li>
 
           <!-- Divider -->

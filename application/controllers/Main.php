@@ -1,32 +1,37 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Main extends CI_Controller {
+class Main extends CI_Controller
+{
 
-    function __construct(){
+    function __construct()
+    {
         parent::__construct();
         $this->load->helper('url');
         $this->load->library('session');
     }
 
-	public function index(){
+    public function index()
+    {
         $data['title'] = 'Home | LostandFound';
         $data['status'] = 'home';
-        $this->load->view('components/navbar.php',$data);
-		$this->load->view('main/home');
+        $this->load->view('components/navbar.php', $data);
+        $this->load->view('main/home');
         $this->load->view('components/footer.php');
-	}
+    }
 
-    public function hubungi(){
+    public function hubungi()
+    {
         $data['title'] = 'Hubungi | LostandFound';
         $data['status'] = 'hubungi';
         $this->load->view('components/navbar.php', $data);
-		$this->load->view('main/hubungi');
+        $this->load->view('main/hubungi');
         $this->load->view('components/footer.php');
-	}
-    
-    public function barang(){
-        if(empty($this->session->userdata['auth_data'])){
+    }
+
+    public function barang()
+    {
+        if (empty($this->session->userdata['auth_data'])) {
             $this->session->set_flashdata(
                 'message',
                 '<div class="alert alert-danger" role="alert">
@@ -43,27 +48,27 @@ class Main extends CI_Controller {
         $this->load->model('M_barang');
         $this->load->model('M_Main');
 
-        if(!empty($search)){
+        if (!empty($search)) {
             $barang = $this->M_barang->getLostSearch($search);
-        }
-        else{
+        } else {
             $barang = $this->M_barang->getlost();
         }
-        
+
         $kat = $this->M_Main->getkategori();
-        
+
         $data['barang'] = $barang;
         $data['kat'] = $kat;
         $data['title'] = 'Temukan Barang | LostAndFound';
         $data['status'] = 'barang';
 
-        $this->load->view('components/navbar',$data);
+        $this->load->view('components/navbar', $data);
         $this->load->view('main/temukan', $data);
         $this->load->view('components/footer.php');
     }
 
-    public function barang_kat($no_kategori){
-        if(empty($this->session->userdata['auth_data'])){
+    public function barang_kat($no_kategori)
+    {
+        if (empty($this->session->userdata['auth_data'])) {
             $this->session->set_flashdata(
                 'message',
                 '<div class="alert alert-danger" role="alert">
@@ -86,15 +91,15 @@ class Main extends CI_Controller {
         $data['title'] = 'Temukan Barang | LostAndFound';
         $data['status'] = 'barang';
 
-        $this->load->view('components/navbar',$data);
+        $this->load->view('components/navbar', $data);
         $this->load->view('main/barang/kat_temukan', $data);
-        $this->load->view('components/footer.php');
     }
 
-    
 
-    public function found(){
-        if(empty($this->session->userdata['auth_data'])){
+
+    public function found()
+    {
+        if (empty($this->session->userdata['auth_data'])) {
             $this->session->set_flashdata(
                 'message',
                 '<div class="alert alert-danger" role="alert">
@@ -113,31 +118,32 @@ class Main extends CI_Controller {
         $data['title'] = 'Upload Barang | LostAndFound';
         $data['status'] = 'barang';
 
-        $this->load->view('components/navbar.php',$data);
+        $this->load->view('components/navbar.php', $data);
         $this->load->view('main/barang/upbarang.php', $data);
     }
 
-    public function foundinput(){
+    public function foundinput()
+    {
         $this->load->model('M_barang');
         $this->M_barang->upload();
         redirect('Main/barang');
     }
 
-    public function help(){
+    public function help()
+    {
         $data['status'] = 'bantuan';
         $data['title'] = 'Bantuan | LostandFound';
-        $this->load->view('components/navbar.php',$data);
-		$this->load->view('main/help');
+        $this->load->view('components/navbar.php', $data);
+        $this->load->view('main/help');
         $this->load->view('components/footer.php');
-	}
+    }
 
-    public function tentang(){
+    public function tentang()
+    {
         $data['status'] = 'tentang';
         $data['title'] = 'Tentang | LostandFound';
-        $this->load->view('components/navbar.php',$data);
-		$this->load->view('main/tentang');
+        $this->load->view('components/navbar.php', $data);
+        $this->load->view('main/tentang');
         $this->load->view('components/footer.php');
-	}
-
+    }
 }
-?>

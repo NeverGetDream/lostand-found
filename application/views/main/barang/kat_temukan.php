@@ -19,7 +19,7 @@
             <div class="col-md-8 col-sm-8 col-lg-7" style="padding-bottom: 8px;">
                 <div class="container-fluid">
                     <form class="d-flex">
-                        <input class="form-control me-4" type="search" placeholder="Search" aria-label="Search" style="border-color: #f9a826;"/>
+                        <input class="form-control me-4" type="search" placeholder="Search" aria-label="Search" style="border-color: #f9a826;" />
                         <button class="btn btn-outline-warning" type="submit">Search</button>
                     </form>
                 </div>
@@ -35,9 +35,9 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: fit-content;">
                         <a class="dropdown-item" href="<?= base_url('main/barang') ?>">Tampilkan Semua</a>
                         <?php
-                        foreach($kat as $k){
+                        foreach ($kat as $k) {
                             echo '
-                                <a class="dropdown-item" href="'. base_url('main/barang_kat/').$k['nomor'] .'">'. $k['kategori'] .'</a>
+                                <a class="dropdown-item" href="' . base_url('main/barang_kat/') . $k['nomor'] . '">' . $k['kategori'] . '</a>
                             ';
                         }
                         ?>
@@ -68,19 +68,20 @@
                         <div class="row">
                             <!-- disini nanti looping -->
                             <?php
-                            foreach($k_barang as $row){
-                                $des = substr($row['des_barang'], 0, 45);
+                            foreach ($k_barang as $row) {
+                                $des = substr($row['des_barang'], 0, 25);
                                 echo '
-                                    <div class="col-1 col-sm-6 col-md-4 col-lg-3 mb-2">
+                                    <div class="col-1 col-sm-6 col-lg-3 mb-2">
                                         <div class="card body-text">
-                                            <a class="img-card" href="'. base_url('image/barang/hilang/').$row['img_name'] .'" target="blank">
-                                                <img src="'. base_url('image/barang/hilang/').$row['img_name'] .'" />
+                                            <a class="img-card" href="' . base_url('image/barang/hilang/') . $row['img_name'] . '" target="blank">
+                                                <img src="' . base_url('image/barang/hilang/') . $row['img_name'] . '" />
                                             </a>
                                             <a href="" class="card-main-text body-text open-modal" style="height: 170px">
                                                 <div class="card-content">
-                                                    <h4 class="card-title" id="card-head">'. $row['nama_barang'] .'</h4>
-                                                    <p class="card-tittle card-row">Lokasi : '. $row['lokasi'] .'</p>
-                                                    <p class="card-row">'. $des .'.....</p>
+                                                    <h4 class="card-title" id="card-head">' . $row['nama_barang'] . '</h4>
+                                                    <p class="card-tittle card-row">Kategori : ' . $row['kategori'] . '</p>
+                                                    <p class="card-tittle card-row">Lokasi : ' . $row['lokasi'] . '</p>
+                                                    <p class="card-row">' . $des . '.....</p>
                                                 </div>
                                             </a>
                                             <button class="btn btn-more-info">Selengkapnya...</button>
