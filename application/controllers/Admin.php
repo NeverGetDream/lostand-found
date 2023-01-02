@@ -89,7 +89,7 @@ class Admin extends CI_Controller
         $data['image'] = $this->session->userdata['auth_data']['image'];
         $data['fname'] = $this->session->userdata['auth_data']['first_name'];
         $data['bname'] = $this->session->userdata['auth_data']['last_name'];
-        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->session->userdata['auth_data'];
         $this->load->view('components/header', $data);
         $this->load->view('components/sidebar', $data);
         $this->load->view('components/topbar', $data);
@@ -102,7 +102,7 @@ class Admin extends CI_Controller
         $data['image'] = $this->session->userdata['auth_data']['image'];
         $data['fname'] = $this->session->userdata['auth_data']['first_name'];
         $data['bname'] = $this->session->userdata['auth_data']['last_name'];
-        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->session->userdata['auth_data'];
         $this->load->view('components/header', $data);
         $this->load->view('components/sidebar', $data);
         $this->load->view('components/topbar', $data);

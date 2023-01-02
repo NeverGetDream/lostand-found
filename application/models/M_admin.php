@@ -35,7 +35,7 @@ class M_admin extends CI_Model
         $data['image'] = $this->session->userdata['auth_data']['image'];
         $data['fname'] = $this->session->userdata['auth_data']['first_name'];
         $data['bname'] = $this->session->userdata['auth_data']['last_name'];
-        $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->session->userdata['auth_data'];
 
         $this->form_validation->set_rules('fname', 'Nama Depan', 'required|trim');
         $this->form_validation->set_rules('bname', 'Nama Belakang', 'required|trim');
