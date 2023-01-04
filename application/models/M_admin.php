@@ -6,31 +6,26 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_admin extends CI_Model
 {
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
         $this->load->helper('url');
     }
 
-    public function getListUser()
-    {
+    public function getListUser(){
         $query = $this->db->get('users');
         return $query->result_array();
     }
 
-    public function getUser($limit, $start)
-    {
+    public function getUser($limit, $start){
         return $this->db->get('users', $limit, $start)->result_array();
     }
 
-    public function countAllUsers()
-    {
+    public function countAllUsers(){
         $query = $this->db->get('users');
         return $query->num_rows();
     }
 
-    public function editAdmin()
-    {
+    public function editAdmin(){
         $data['title'] = 'Edit Admin | LostAndFound';
         $data['image'] = $this->session->userdata['auth_data']['image'];
         $data['fname'] = $this->session->userdata['auth_data']['first_name'];
@@ -83,5 +78,29 @@ class M_admin extends CI_Model
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Your profile has been updated!</div>');
             redirect('admin/editAdmin');
         }
+    }
+
+    public function getInfo($user_id){
+        $sqladmin = 'SELECT user_id FROM users WHERE role_id=1';
+        $sqluser = 'SELECT user_id FROM users WHERE role_id=2';
+        $sqllost = 'SELECT id_barang FROM barang_hilang';
+        $sqlfound = 'SELECT id_barang FROM barang_ditemukan';
+        
+        $rawadmin = $this->db->query($sqladmin);
+        $rawuser = $this->db->query($sqluser);
+        $rawlost = $this->db->query($sqllost);
+        $rawfound = $this->db->query($sqlfound);
+
+        $admin = $rawadmin->num_rows();
+        $user = $rawuser->num_rows();
+        $lost = $rawlost->num_rows();
+        $found = $rawfound->num_rows();
+
+        $data['admin'] = $admin;
+        $data['user'] = $user;
+        $data['lost'] = $lost;
+        $data['found'] = $found;
+
+        return $data;
     }
 }

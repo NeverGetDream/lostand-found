@@ -67,7 +67,7 @@
                             <?php
                             foreach ($barang as $row) {
                                 $des = substr($row['des_barang'], 0, 25);
-
+                                $nama = $row['first_name'].' '.$row['last_name'];
                                 echo '
                                     <div class="col-1 col-sm-6 col-md-4 col-lg-3 mb-2">
                                         <div class="card body-text">
@@ -94,15 +94,45 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="SelengkapModal">Informasi Lengkap</h5>
-                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">X</span>
-                                                </button>
                                             </div>
                                             <div class="modal-body">
-                                            <h4 class="card-title" id="card-head">' . $row['nama_barang'] . '</h4>
-                                            <p class="card-tittle card-row"> Kategori: ' . $row['kategori'] . '</p>
-                                            <p class="card-tittle card-row">Lokasi : ' . $row['lokasi'] . '</p>
-                                            <p class="card-tittle card-row">Deskripsi : ' . $row['des_barang'] . '</p>
+                                                <h4 class="card-title" id="card-head">' . $row['nama_barang'] . '</h4>
+                                                <div><img src="' . base_url('image/barang/hilang/') . $row['img_name'] . '" width="95%" style="border-radius: 10px; margin: 10px;"></div>
+                                                <div>
+                                                    <table class="table rounded-2">
+                                                        <tbody>
+                                                            <tr style="text-align: left;">
+                                                                <td style="width: 30%;">Penemu </td>
+                                                                <td style="width: auto;">: '. $nama .'</td>
+                                                            </tr>
+                                                            <tr style="text-align: left;">
+                                                                <td style="width: 30%;">Kategori </td>
+                                                                <td style="width: auto;">: '. $row['kategori'] .'</td>
+                                                            </tr>
+                                                            <tr style="text-align: left;">
+                                                                <td style="width: 30%;">Deskripsi </td>
+                                                                <td style="width: auto;">: '. $row['des_barang'] .'</td>
+                                                            </tr>
+                                                            <tr style="text-align: left;">
+                                                                <td style="width: 30%;">Lokasi </td>
+                                                                <td style="width: auto;">: '. $row['lokasi'] .'</td>
+                                                            </tr>
+                                                            <tr style="text-align: left;">
+                                                                <td style="width: 30%;">Dititip di </td>
+                                                                <td style="width: auto;">: '. $row['temp_titip'] .'</td>
+                                                            </tr>
+                                                            <tr style="text-align: left;">
+                                                                <td style="width: 30%;">Kota </td>
+                                                                <td style="width: auto;">: '. $row['kota'] .'</td>
+                                                            </tr>
+                                                            <tr style="text-align: left;">
+                                                                <td style="width: 30%;">Provinsi </td>
+                                                                <td style="width: auto;">: '. $row['provinsi'] .'</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
                                             </div>
                                             <div class="modal-footer">
                                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Tutup</button>

@@ -9,6 +9,7 @@ class Admin extends CI_Controller
         parent::__construct();
         $this->load->helper('url');
         $this->load->library('session');
+        $this->load->model('M_admin');
 
         // Login Check
         if (empty($this->session->userdata['auth_data'])) {
@@ -30,12 +31,16 @@ class Admin extends CI_Controller
         }
     }
 
-    public function index()
-    {
+    public function index(){
+        // ambil data
+        $uid = $this->session->userdata['auth_data']['user_id'];
+        $data['infodata'] = $this->M_admin->getInfo($uid);
+
         $data['image'] = $this->session->userdata['auth_data']['image'];
         $data['fname'] = $this->session->userdata['auth_data']['first_name'];
         $data['bname'] = $this->session->userdata['auth_data']['last_name'];
         $data['title'] = 'Admin Panel | LostAndFound';
+
         $this->load->view('components/header', $data);
         $this->load->view('components/sidebar');
         $this->load->view('components/topbar', $data);
