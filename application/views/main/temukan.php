@@ -63,7 +63,6 @@
                 <div class="content">
                     <div class="container">
                         <div class="row">
-                            <!-- disini nanti looping -->
                             <?php
                             foreach ($barang as $row) {
                                 $des = substr($row['des_barang'], 0, 25);
@@ -89,7 +88,8 @@
                                         </div>
                                     </div>
 
-                                    <div class="modal fade" style="margin-top:200px;" id="InfoModal' . $row['id_barang'] . '" tabindex="-1" role="dialog" aria-labelledby="SelengkapModal" aria-hidden="true">
+                                    <!-- Modal -->
+                                    <div class="modal fade" style="margin-top:80px; padding-bottom: 80px;" id="InfoModal' . $row['id_barang'] . '" tabindex="-1" role="dialog" aria-labelledby="SelengkapModal" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -103,31 +103,38 @@
                                                         <tbody>
                                                             <tr style="text-align: left;">
                                                                 <td style="width: 30%;">Penemu </td>
-                                                                <td style="width: auto;">: '. $nama .'</td>
+                                                                <td style="width: 2%;">: </td>
+                                                                <td style="width: auto;">'. $nama .'</td>
                                                             </tr>
                                                             <tr style="text-align: left;">
                                                                 <td style="width: 30%;">Kategori </td>
-                                                                <td style="width: auto;">: '. $row['kategori'] .'</td>
+                                                                <td style="width: 2%;">: </td>
+                                                                <td style="width: auto;">'. $row['kategori'] .'</td>
                                                             </tr>
                                                             <tr style="text-align: left;">
                                                                 <td style="width: 30%;">Deskripsi </td>
-                                                                <td style="width: auto;">: '. $row['des_barang'] .'</td>
+                                                                <td style="width: 2%;">: </td>
+                                                                <td style="width: auto;">'. $row['des_barang'] .'</td>
                                                             </tr>
                                                             <tr style="text-align: left;">
                                                                 <td style="width: 30%;">Lokasi </td>
-                                                                <td style="width: auto;">: '. $row['lokasi'] .'</td>
+                                                                <td style="width: 2%;">: </td>
+                                                                <td style="width: auto;">'. $row['lokasi'] .'</td>
                                                             </tr>
                                                             <tr style="text-align: left;">
                                                                 <td style="width: 30%;">Dititip di </td>
-                                                                <td style="width: auto;">: '. $row['temp_titip'] .'</td>
+                                                                <td style="width: 2%;">: </td>
+                                                                <td style="width: auto;">'. $row['temp_titip'] .'</td>
                                                             </tr>
                                                             <tr style="text-align: left;">
                                                                 <td style="width: 30%;">Kota </td>
-                                                                <td style="width: auto;">: '. $row['kota'] .'</td>
+                                                                <td style="width: 2%;">: </td>
+                                                                <td style="width: auto;">'. $row['kota'] .'</td>
                                                             </tr>
                                                             <tr style="text-align: left;">
                                                                 <td style="width: 30%;">Provinsi </td>
-                                                                <td style="width: auto;">: '. $row['provinsi'] .'</td>
+                                                                <td style="width: 2%;">: </td>
+                                                                <td style="width: auto;">'. $row['provinsi'] .'</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
