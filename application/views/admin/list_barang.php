@@ -46,8 +46,8 @@
                                 <td><?= $row['kota'] ?></td>
                                 <td><?= $row['provinsi'] ?></td>
                                 <td style="text-align: center;">
-                                    <a href=<?= base_url('image/barang/hilang/').$row['img_name'] ?> target="blank">
-                                        <img src="<?= base_url('assets/img/') ?>image.png" alt="" width="40px">
+                                    <a href="<?= base_url('admin/listViewImage/').$row['img_name'] ?>" target="blank">
+                                        <img src="<?= base_url('image/barang/hilang/').$row['img_name'] ?>" alt="" width="40px" style="margin: 10px;">
                                     </a>
                                 </td>
                                 <td style="text-align: center;">

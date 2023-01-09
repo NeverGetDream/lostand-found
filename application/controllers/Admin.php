@@ -185,4 +185,11 @@ class Admin extends CI_Controller
         $this->load->model('M_admin');
         $this->M_admin->editAdmin();
     }
+
+
+    public function listViewImage($id_image){
+        $data['title'] = $id_image.' Preview';
+        $data['image_id'] = $id_image;
+        $this->load->view('admin/img_prev', $data);
+    }
 }
