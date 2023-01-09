@@ -23,29 +23,37 @@
                             <th>Tempat dititipkan</th>
                             <th>Kota</th>
                             <th>Provinsi</th>
+                            <th>Lihat gambar</th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php
-                    echo '<pre>'; print_r($list); echo '</pre>'; die();
                         foreach ($list as $row) {
+                            $nama = $row['first_name'].' '.$row['last_name'];
+                            $full_des = $row['des_barang'];
+                            $desc = substr($full_des, 0, 45);
                             ?>
                             <tr>
                                 <td><?= ++$start; ?></td>
                                 <td><?= $row['id_barang']; ?></td>
                                 <td><?= $row['nama_barang']; ?></td>
-                                <td><?= $row['']; ?></td>
-                                <td><?= $row['email']; ?></td>
-                                <td><?= $row['provinsi']; ?></td>
-                                <td><?= $row['kota']; ?></td>
-                                <td><?= $row['alamat']; ?></td>
-                                <td><?= $status ?></td>
-                                <td><?= $role; ?></td>
+                                <td><?= $row['kategori']; ?></td>
+                                <td><?= $nama; ?></td>
+                                <td><?= $desc ?>....</td>
+                                <td><?= $row['lokasi'] ?></td>
+                                <td><?= $row['temp_titip'] ?></td>
+                                <td><?= $row['kota'] ?></td>
+                                <td><?= $row['provinsi'] ?></td>
+                                <td>
+                                    <a href=<?= base_url('image/barang/hilang/').$row['img_name'] ?> target="blank">
+                                        <img src="<?= base_url('assets/img/') ?>image.png" alt="" width="40px">
+                                    </a>
+                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
-                <?= $this->pagination->create_links(); ?>
+                <!-- <?= $this->pagination->create_links(); ?> -->
             </div>
         </div>
     </div>

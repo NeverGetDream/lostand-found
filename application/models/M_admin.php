@@ -30,9 +30,20 @@ class M_admin extends CI_Model
     }
 
     public function getBarang($limit, $start){
-        return $this->db->get('barang_hilang', $limit, $start)->result_array();
+        $this->db->select('*');
+        $this->db->from('barang_hilang');
+        $this->db->join('kategori', 'barang_hilang.id_kategori = kategori.nomor', 'left');
+        $this->db->join('prov', 'barang_hilang.id_prov = prov.nomor', 'left');
+        $this->db->join('users', 'barang_hilang.id_user = users.user_id', 'left');
+        
+        $raw = $this->db->get();
+        $data = $raw->result_array();
+        return $data;
+
+
+        // return $this->db->get('barang_hilang', $limit, $start)->result_array();
     }
-    
+
     public function editAdmin(){
         $data['title'] = 'Edit Admin | LostAndFound';
         $data['image'] = $this->session->userdata['auth_data']['image'];
