@@ -1,6 +1,5 @@
 <?php
 
-use LDAP\Result;
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -23,6 +22,15 @@ class M_admin extends CI_Model
     public function countAllUsers(){
         $query = $this->db->get('users');
         return $query->num_rows();
+    }
+
+    public function countBarang(){
+        $query = $this->db->get('barang_hilang');
+        return $query->num_rows();
+    }
+
+    public function getBarang($limit, $start){
+        return $this->db->get('barang_hilang', $limit, $start)->result_array();
     }
 
     public function editAdmin(){
@@ -80,7 +88,7 @@ class M_admin extends CI_Model
         }
     }
 
-    public function getInfo($user_id){
+    public function getInfo(){
         $sqladmin = 'SELECT user_id FROM users WHERE role_id=1';
         $sqluser = 'SELECT user_id FROM users WHERE role_id=2';
         $sqllost = 'SELECT id_barang FROM barang_hilang';

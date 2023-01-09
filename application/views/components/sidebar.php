@@ -54,8 +54,8 @@
               <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
                       <h6 class="collapse-header">Tentang Barang:</h6>
-                      <a class="collapse-item" href="">Barang hilang</a>
-                      <a class="collapse-item" href="">Barang ditemukan</a>
+                      <a class="collapse-item" href="<?= base_url('admin/lostlist') ?>">Barang hilang</a>
+                      <a class="collapse-item" href="<?= base_url('admin/foundlist') ?>">Barang ditemukan</a>
                   </div>
               </div>
           </li>
