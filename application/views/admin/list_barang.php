@@ -12,7 +12,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr>
+                        <tr style="text-align: center;">
                             <th>No</th>
                             <th>ID Barang</th>
                             <th>Nama Barang</th>
@@ -45,16 +45,16 @@
                                 <td><?= $row['temp_titip'] ?></td>
                                 <td><?= $row['kota'] ?></td>
                                 <td><?= $row['provinsi'] ?></td>
-                                <td>
+                                <td style="text-align: center;">
                                     <a href=<?= base_url('image/barang/hilang/').$row['img_name'] ?> target="blank">
                                         <img src="<?= base_url('assets/img/') ?>image.png" alt="" width="40px">
                                     </a>
                                 </td>
-                                <td>
+                                <td style="text-align: center;">
                                     <a href="">
                                         <img src="<?= base_url('assets/img/') ?>edit.png" width="30px" alt="" style="margin: 10px;">
                                     </a>
-                                    <a href>
+                                    <a href="">
                                         <img src="<?= base_url('assets/img/') ?>delete.png" width="30px" alt="" style="margin: 10px;">
                                     </a>
                                 </td>
