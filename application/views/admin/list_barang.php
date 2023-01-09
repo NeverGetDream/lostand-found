@@ -28,37 +28,58 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
+                        <?php
                         foreach ($list as $row) {
-                            $nama = $row['first_name'].' '.$row['last_name'];
+                            $nama = $row['first_name'] . ' ' . $row['last_name'];
                             $full_des = $row['des_barang'];
                             $desc = substr($full_des, 0, 45);
-                            ?>
-                            <tr>
-                                <td><?= ++$start; ?></td>
-                                <td><?= $row['id_barang']; ?></td>
-                                <td><?= $row['nama_barang']; ?></td>
-                                <td><?= $row['kategori']; ?></td>
-                                <td><?= $nama; ?></td>
-                                <td><?= $desc ?>....</td>
-                                <td><?= $row['lokasi'] ?></td>
-                                <td><?= $row['temp_titip'] ?></td>
-                                <td><?= $row['kota'] ?></td>
-                                <td><?= $row['provinsi'] ?></td>
-                                <td style="text-align: center;">
-                                    <a href="<?= base_url('admin/listViewImage/').$row['img_name'] ?>" target="blank">
-                                        <img src="<?= base_url('image/barang/hilang/').$row['img_name'] ?>" alt="" width="40px" style="margin: 10px;">
-                                    </a>
-                                </td>
-                                <td style="text-align: center;">
-                                    <a href="">
-                                        <img src="<?= base_url('assets/img/') ?>edit.png" width="30px" alt="" style="margin: 10px;">
-                                    </a>
-                                    <a href="">
-                                        <img src="<?= base_url('assets/img/') ?>delete.png" width="30px" alt="" style="margin: 10px;">
-                                    </a>
-                                </td>
-                            </tr>
+                        ?>
+                            
+                        <tr>
+                            <td><?= ++$start; ?></td>
+                            <td><?= $row['id_barang']; ?></td>
+                            <td><?= $row['nama_barang']; ?></td>
+                            <td><?= $row['kategori']; ?></td>
+                            <td><?= $nama; ?></td>
+                            <td><?= $desc ?>....</td>
+                            <td><?= $row['lokasi'] ?></td>
+                            <td><?= $row['temp_titip'] ?></td>
+                            <td><?= $row['kota'] ?></td>
+                            <td><?= $row['provinsi'] ?></td>
+                            <td style="text-align: center;">
+                                <a href="<?= base_url('admin/listViewImage/') . $row['img_name'] ?>" target="blank">
+                                    <img src="<?= base_url('image/barang/hilang/') . $row['img_name'] ?>" alt="" width="40px" style="margin: 10px;">
+                                </a>
+                            </td>
+                            <td style="text-align: center;">
+                                <a href="">
+                                    <img src="<?= base_url('assets/img/') ?>edit.png" width="30px" alt="" style="margin: 10px;">
+                                </a>
+                                <a href="" data-toggle="modal" data-target="#deleteModal<?= $row['id_barang'] ?>">
+                                    <img src="<?= base_url('assets/img/') ?>delete.png" width="30px" alt="" style="margin: 10px;">
+                                </a>
+                            </td>
+                        </tr>
+
+                        <div class="modal fade" id="deleteModal<?= $row['id_barang'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Apakah Anda yakin ingin menghapus?</h5>
+                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Barang yang telah dihapus tidak akan bisa dikembalikan.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                                        <a class="btn btn-warning" href="<?= base_url('admin/deleteBarang/').$row['id_barang'] ?>">Hapus</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <?php } ?>
                     </tbody>
                 </table>
@@ -67,3 +88,4 @@
         </div>
     </div>
 </div>
+

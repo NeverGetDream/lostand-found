@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= base_url('assets/'); ?>css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="<?= base_url('image/barang/hilang/').$image_id ?>" style="border-radius: 50%;">
     <title><?= $title ?></title>
-    
 </head>
 <body>
     <div class="container">

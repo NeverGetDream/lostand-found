@@ -157,6 +157,15 @@ class Admin extends CI_Controller
         $this->load->view('components/admin_footer', $data);
     }
 
+    public function editBarang($id_barang){
+        // 
+    }
+
+    public function deleteBarang($id_barang){
+        $this->M_admin->delBarang($id_barang);
+        redirect('admin/lostlist');
+    }
+
 
 
 

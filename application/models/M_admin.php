@@ -44,6 +44,11 @@ class M_admin extends CI_Model
         // return $this->db->get('barang_hilang', $limit, $start)->result_array();
     }
 
+    public function delBarang($id){
+        $del = "DELETE FROM barang_hilang WHERE id_barang=$id";
+        $this->db->query($del);
+    }
+
     public function editAdmin(){
         $data['title'] = 'Edit Admin | LostAndFound';
         $data['image'] = $this->session->userdata['auth_data']['image'];
