@@ -32,7 +32,7 @@ class M_admin extends CI_Model
     public function getBarang($limit, $start){
         return $this->db->get('barang_hilang', $limit, $start)->result_array();
     }
-
+    
     public function editAdmin(){
         $data['title'] = 'Edit Admin | LostAndFound';
         $data['image'] = $this->session->userdata['auth_data']['image'];
