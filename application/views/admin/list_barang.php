@@ -24,6 +24,7 @@
                             <th>Kota</th>
                             <th>Provinsi</th>
                             <th>Lihat gambar</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,6 +48,14 @@
                                 <td>
                                     <a href=<?= base_url('image/barang/hilang/').$row['img_name'] ?> target="blank">
                                         <img src="<?= base_url('assets/img/') ?>image.png" alt="" width="40px">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="">
+                                        <img src="<?= base_url('assets/img/') ?>edit.png" width="30px" alt="" style="margin: 10px;">
+                                    </a>
+                                    <a href>
+                                        <img src="<?= base_url('assets/img/') ?>delete.png" width="30px" alt="" style="margin: 10px;">
                                     </a>
                                 </td>
                             </tr>
