@@ -28,7 +28,7 @@ header img {
     display: flex;
 }
 
-.nav-bar ul li a{
+.nav-bar ul li a:not(.profileimg){
     display: block;
     color: #F9A826;
     font-size: 15px;
@@ -42,18 +42,24 @@ header img {
 
 }
 
-.nav-bar ul li a:hover{
+.nav-bar ul li a:hover:not(.profileimg){
     color:#fff;
     background-color: #F9A826;
 }
 
 .nav-bar .masuk{
-    color: #fff;
+    color: #fff !important;
     background-color: #F9A826;
     border: 2px solid #F9A826;
 }
 
 .home, .bantuan, .tentang, .barang, .hubungi {
+    background-color: #f9a826 !important;
+    color: #fff !important;
+    font-style: oblique;
+}
+
+.profile, .edit, .security {
     background-color: #f9a826 !important;
     color: #fff !important;
     font-style: oblique;
@@ -131,7 +137,7 @@ header img {
     .nav-bar.active ul{
         opacity: 1;
     }
-    .nav-bar ul li a{
+    .nav-bar ul li a:not(.profileimg){
         margin-bottom: 12px;
     }
 }
