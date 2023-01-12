@@ -15,6 +15,9 @@
     <link href="<?= base_url('assets/'); ?>css/tentang.css" rel="stylesheet" type="text/css" />
     <script src="<?= base_url('components/'); ?>bootstrap.bundle.js"></script>
     <title><?= $title ?></title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/') ?>profilestyle.css">
 </head>
 
 </html>
