@@ -20,7 +20,7 @@ class Profile extends CI_Controller{
             redirect(base_url('auth'));
         } elseif ($this->session->userdata['auth_data']['role_id'] == 1) {
             // User adalah admin
-            redirect(base_url('admin/profileAdmin'));   
+            redirect(base_url('admin/profileAdmin'));
         }
     }
 
