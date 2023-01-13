@@ -32,6 +32,7 @@ class Profile extends CI_Controller{
 
         // Get Greeting
         $data['greeting'] = $this->M_profile->getGreeting();
+        $data['info_barang'] = $this->M_profile->getInfoBarang();
 
         $data['title'] = 'Profile | Lost LostAndFound';
         $data['status'] = 'profile';

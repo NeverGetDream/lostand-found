@@ -28,7 +28,7 @@ class M_barang extends CI_Model
 
     public function getLostSearch($search)
     {
-        $getdata = "SELECT * FROM barang_hilang LEFT JOIN kategori ON kategori.id_kategori = barang_hilang.id_kategori LEFT JOIN users ON barang_hilang.id_user = users.user_id LEFT JOIN prov ON barang_hilang.id_prov=prov.nomor WHERE nama_barang LIKE '%$search%' OR des_barang LIKE '%$search%'";
+        $getdata = "SELECT * FROM barang_hilang LEFT JOIN kategori ON kategori.id_kategori = barang_hilang.id_kategori LEFT JOIN users ON barang_hilang.id_user = users.user_id LEFT JOIN prov ON barang_hilang.id_prov=prov.nomor WHERE nama_barang LIKE '%$search%' OR des_barang LIKE '%$search%' OR kategori.kategori='$search'";
         $dataraw = $this->db->query($getdata);
         $data = $dataraw->result_array();
         return $data;

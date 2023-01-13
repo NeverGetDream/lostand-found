@@ -19,7 +19,7 @@
             <div class="col-md-8 col-sm-8 col-lg-7" style="padding-bottom: 8px;">
                 <div class="container-fluid">
                     <form class="d-flex">
-                        <input class="form-control me-4" type="search" placeholder="Search" aria-label="Search" style="border-color: #f9a826;" />
+                        <input name="key" class="form-control me-4" type="search" placeholder="Search" aria-label="Search" style="border-color: #f9a826;" />
                         <button class="btn btn-outline-warning" type="submit">Search</button>
                     </form>
                 </div>
