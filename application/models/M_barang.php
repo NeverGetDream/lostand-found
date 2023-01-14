@@ -36,7 +36,7 @@ class M_barang extends CI_Model
 
     public function getLostByKat($id)
     {
-        $getdata = "SELECT * FROM barang_hilang LEFT JOIN kategori ON kategori.id_kategori = barang_hilang.id_kategori WHERE barang_hilang.id_kategori='$id'";
+        $getdata = "SELECT * FROM barang_hilang LEFT JOIN kategori ON kategori.id_kategori = barang_hilang.id_kategori LEFT JOIN users ON barang_hilang.id_user = users.user_id LEFT JOIN prov ON barang_hilang.id_prov=prov.nomor WHERE barang_hilang.id_kategori='$id'";
         $dataraw = $this->db->query($getdata);
         $data = $dataraw->result_array();
         return $data;

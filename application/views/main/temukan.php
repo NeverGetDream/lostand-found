@@ -83,7 +83,7 @@
                                             </a>
                                             <button class="btn btn-more-info" data-toggle="modal" data-target="#InfoModal' . $row['id_barang'] . '">Selengkapnya...</button>
                                             <div class="card-read-more" id="read">
-                                                <a href="#" class="btn btn-link btn-block">INI PUNYAKU!</a>
+                                                <a href="'.base_url('barang/info/').$row['id_barang'].'" class="btn btn-link btn-block">INI PUNYAKU!</a>
                                             </div>
                                         </div>
                                     </div>
