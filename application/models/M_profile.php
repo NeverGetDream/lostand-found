@@ -64,7 +64,7 @@ class M_profile extends CI_Model {
         $kota = htmlspecialchars($this->input->post('kota', true));
         $alamat = htmlspecialchars($this->input->post('alamat', true));
         $img = $_FILES['new_img']['name'];
-
+        $fileName = str_replace(' ', '', $img);
         $updateData = "UPDATE users SET
             first_name = '$fname',
             last_name = '$lname',
@@ -72,7 +72,7 @@ class M_profile extends CI_Model {
             provinsi = '$prov',
             kota = '$kota',
             alamat = '$alamat',
-            image = '$img'
+            image = '$fileName'
         WHERE user_id=$uid";
 
         // Update Data

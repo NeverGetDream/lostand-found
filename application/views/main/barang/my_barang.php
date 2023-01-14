@@ -4,7 +4,7 @@
         <?php 
           foreach ($barang as $row) {
             $nama = $row['first_name'].' '.$row['last_name'];
-            $profile_pict = $this->session->userdata['auth_data']['image'];
+            $profile_pict = $row['image'];
             echo '
           <div class="col-sm-3" style="padding-right: 20px">
             <div style="display: block">
