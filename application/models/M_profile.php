@@ -57,6 +57,16 @@ class M_profile extends CI_Model {
 
 
     public function updateDataWithImage($uid){
+        // Old image name
+        $oldimg = "SELECT image FROM users WHERE user_id='$uid'";
+        $raw_old_image_name = $this->db->query($oldimg)->result_array();
+        $old_image_name = $raw_old_image_name[0]['image'];
+        $path_img = './assets/img/profile/';
+        $remove_path = $path_img.$old_image_name;
+        // echo '<pre>'; print_r($remove_path); echo '</pre>'; die();
+        unlink($remove_path);
+
+
         $fname = htmlspecialchars($this->input->post('fname', true));
         $lname = htmlspecialchars($this->input->post('bname', true));
         $hp = htmlspecialchars($this->input->post('no_hp', true));
@@ -80,7 +90,23 @@ class M_profile extends CI_Model {
 
 
         // Image Upload
-        
+        $format = '.jpg';
+        $img_name = $_FILES['new_img']['name'];
+        $final_img_name = $fname.$uid.$format;
+
+        // Update Image Name
+        $updateimg = "UPDATE users SET image='$final_img_name' WHERE user_id='$uid'";
+        $this->db->query($updateimg);
+
+        // Img Upload Config
+        $this->load->helper('form');
+        $config['upload_path'] = "./assets/img/profile";
+
+        $config['allowed_types'] = 'jpg|jpeg|png';
+        $config['max_size'] = '2048000';
+        $config['file_name'] = $final_img_name;
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('new_img');
     }
 
     public function updateDataOnly($uid){

@@ -88,7 +88,7 @@ class M_barang extends CI_Model
         $this->load->helper('form');
         // Upload configuration
         $config['upload_path'] = './image/barang/hilang';
-        $config['allowed_types'] = 'jpg|png';
+        $config['allowed_types'] = 'jpg|jpeg|png';
         $config['max_size'] = '2048000';
         $config['file_name'] = $newimgname;
         // Adding config
