@@ -41,4 +41,17 @@ class M_profile extends CI_Model {
 
         return $gret;
     }
+
+    public function getInfoBarang(){
+        $uid = $this->session->userdata['auth_data']['user_id'];
+        $jbarang = $this->db->get_where('barang_hilang', array('id_user' => $uid))->num_rows();
+        // $jfound = $this->db->get_where('barang_ditemukan' array(''));
+
+        $data = [
+            'upload' => $jbarang,
+            'ditemukan' => 0
+        ];
+        
+        return $data;
+    }
 }

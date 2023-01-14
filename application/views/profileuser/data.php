@@ -95,11 +95,11 @@
 
                         <div class="row-section">
                             <h2 class="tx-title">Jumlah Barang yang Anda Upload</h2>
-                            <p class="tx-body text-muted">34 Barang</p>
+                            <p class="tx-body text-muted"><?= $info_barang['upload'] ?> Barang</p>
                         </div>
                         <div class="row-section">
                             <h2 class="tx-title">Barang Dilaporkan Kembali Kepada Pemilik Aslinya</h2>
-                            <p class="tx-body text-muted">4 Barang</p>
+                            <p class="tx-body text-muted"><?= $info_barang['ditemukan'] ?> Barang</p>
                         </div>
 
                     </div>

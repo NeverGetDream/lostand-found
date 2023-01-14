@@ -29,18 +29,34 @@ class Profile extends CI_Controller{
         $uid = $this->session->userdata['auth_data']['user_id'];
         $prfdata = $this->M_profile->getData($uid);
         $data['userdata'] = $prfdata;
-
+        
         // Get Greeting
         $data['greeting'] = $this->M_profile->getGreeting();
-
+        $data['info_barang'] = $this->M_profile->getInfoBarang();
+        
         $data['title'] = 'Profile | Lost LostAndFound';
         $data['status'] = 'profile';
-
+        
         // View
         $this->load->view('profileuser/head', $data);
         $this->load->view('profileuser/nb', $data);
         $this->load->view('profileuser/data', $data);
         // $this->load->view('components/footer');
+        
+    }
+    
+    public function editProfile(){
+        $uid = $this->session->userdata['auth_data']['user_id'];
+        $prfdata = $this->M_profile->getData($uid);
+        $data['userdata'] = $prfdata;
+        
+        $data['title'] = 'Profile | Lost LostAndFound';
+        $data['status'] = 'edit';
 
+        // View
+        $this->load->view('profileuser/head', $data);
+        $this->load->view('profileuser/nb', $data);
+        $this->load->view('profileuser/edit', $data);
+        // echo '<pre>'; print_r($data); echo '</pre>'; die();
     }
 }

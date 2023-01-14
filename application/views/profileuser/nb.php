@@ -23,8 +23,8 @@
         </style>
 
         <li><a href=<?= base_url('profile'); ?> class="active <?php if($status == 'profile' ){ echo $status; } ?>">PROFILE</a></li>
-        <li><a href=<?= base_url('main/editprofile'); ?> class="active <?php if($status == 'edit' ){ echo $status; } ?>">EDIT PROFILE</a></li>
-        <li><a href=<?= base_url('main/security'); ?> class="active <?php if($status == 'security' ){ echo $status; } ?>">KEAMANAN</a></li>
+        <li><a href=<?= base_url('profile/editprofile'); ?> class="active <?php if($status == 'edit' ){ echo $status; } ?>">EDIT PROFILE</a></li>
+        <li><a href=<?= base_url('profile/security'); ?> class="active <?php if($status == 'security' ){ echo $status; } ?>">KEAMANAN</a></li>
 
         <?php
           if(empty($this->session->userdata['auth_data'])){
