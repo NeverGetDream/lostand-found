@@ -36,10 +36,9 @@
                     </div>
 
                     <?php
-                    echo $sourcecontrol;
+                    // echo $sourcecontrol;
                     // echo '<pre>'; print_r($userdata); echo '</pre>'; die();
                     if($sourcecontrol == 'db'){
-                        echo 'db ok';
                         $val_fname = $data_profil['first_name'];
                         $val_bname = $data_profil['last_name'];
                         $val_email = $data_profil['email'];
@@ -49,7 +48,6 @@
                         $val_alamat = $data_profil['alamat'];
                     }
                     elseif($sourcecontrol == 'form_validation'){
-                        echo 'form ok';
                         $val_fname = set_value('fname');
                         $val_bname = set_value('bname');
                         $val_email = set_value('email');
