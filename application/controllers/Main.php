@@ -93,6 +93,7 @@ class Main extends CI_Controller
 
         $this->load->view('components/navbar', $data);
         $this->load->view('main/barang/kat_temukan', $data);
+        
     }
 
 

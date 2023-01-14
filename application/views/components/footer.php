@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<footer class="container-footer">
+<footer class="container-footer footer">
     <div class="page-one">
       <div class="box">
         <figure>
