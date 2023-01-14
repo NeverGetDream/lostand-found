@@ -1,10 +1,12 @@
 .img {
     width: 100px;
+    /* height: 100px; */
     border-radius: 50%;
     text-decoration: none;
     box-shadow: 2px 2px 1px rgb(235, 235, 235);
     -webkit-box-shadow: 2px 2px 1px rgb(235, 235, 235);
     -moz-box-shadow: 2px 2px 1px rgb(235, 235, 235);
+
 }
 
 .greeting, .greeting-text {
