@@ -33,6 +33,41 @@ class Admin extends CI_Controller
 
     public function index(){
         // ambil data
+        $data ['infopesan'] =$this->M_admin->infoPesan();
+        $this->load->library('pagination');
+        $config['base_url'] = base_url('admin/index');
+        $config['total_rows'] = $this->M_admin->countPesan();
+        $config['per_page'] = 8;
+
+        //style
+        $config['full_tag_open'] = '<nav><ul class="pagination">';
+        $config['full_tag_close'] = '</ul></nav>';
+
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] = '<li class="page-item ">';
+        $config['first_tag_close'] = '</li>';
+
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] = '<li class="page-item">';
+        $config['last_tag_close'] = '</li>';
+
+        $config['next_link'] = '&raquo';
+        $config['next_tag_open'] = '<li class="page-item">';
+        $config['next_tag_close'] = '</li>';
+
+        $config['prev_link'] = '&laquo';
+        $config['prev_tag_open'] = '<li class="page-item">';
+        $config['prev_tag_close'] = '</li>';
+
+        $config['cur_tag_open'] = '<li class="page-item active"><a href="#" class="page-link" >';
+        $config['cur_tag_close'] = '</a></li>';
+
+        $config['num_tag_open'] = '<li class="page-item ">';
+        $config['num_tag_close'] = '</li>';
+
+        $config['attributes'] = array('class' => 'page-link');
+        $this->pagination->initialize($config);
+        $data['start'] = $this->uri->segment(3);
         $uid = $this->session->userdata['auth_data']['user_id'];
         $data['infodata'] = $this->M_admin->getInfo($uid);
 
@@ -105,7 +140,7 @@ class Admin extends CI_Controller
     public function lostlist(){
         $this->load->model('M_admin');
         $this->load->library('pagination');
-        $config['base_url'] = base_url('admin/listUser');
+        $config['base_url'] = base_url('admin/lostlist');
         $config['total_rows'] = $this->M_admin->countBarang();
         $config['per_page'] = 30;
 
@@ -200,5 +235,12 @@ class Admin extends CI_Controller
         $data['title'] = $id_image.' Preview';
         $data['image_id'] = $id_image;
         $this->load->view('admin/img_prev', $data);
+    }
+
+    public function PesanHubungi()
+    {
+        $this->load->model('M_admin');
+        $this->M_admin->pesan();
+        redirect('Main/hubungi');
     }
 }

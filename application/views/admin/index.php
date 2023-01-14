@@ -76,8 +76,36 @@
             </div>
         </div>
     </div>
-
-
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-warning">Pesan hubungi</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Pengguna</th>
+                            <th>Email Pengguna</th>
+                            <th>Pesan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($infopesan as $row) {?>
+                            <tr>
+                                <td><?= ++$start; ?></td>
+                                <td><?= $row['nama_pengguna']; ?></td>
+                                <td><?= $row['email_pengguna']; ?></td>
+                                <td><?= $row['pesan']; ?></td>
+                            </tr>
+                        <?php } ?>
+                </table>
+                <?= $this->pagination->create_links(); ?>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- /.container-fluid -->
 
