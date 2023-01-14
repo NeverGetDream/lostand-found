@@ -49,21 +49,23 @@
 
       <!-- Modal body -->
       <div class="modal-body">
+        <form action=<?= base_url('Admin/PesanHubungi'); ?> method="POST" enctype="multipart/form-data">
         <div class="form-outline mb-4">
           <label class="form-label" for="nama">Nama Lengkap</label>
-          <input type="text" id="nama" class="form-control form-control-md" placeholder="Nama Lengkap" />
+          <input type="text" id="nama" name="nama" class="form-control form-control-md" placeholder="Nama Lengkap" />
         </div>
         <div class="form-outline mb-4">
           <label class="form-label" for="email">Email address</label>
-          <input type="email" id="email" class="form-control form-control-md" placeholder="Alamat Email" />
+          <input type="email" id="email"  name="email" class="form-control form-control-md" placeholder="Alamat Email" />
         </div>
         <div class="form-outline mb-4">
-          <label class="form-label" for="text">Pesan Anda</label>
-          <textarea rows="5" placeholder="Keluh Kesah Anda" class="form-control form-control-md" id="comment" name="text"></textarea>
+          <label class="form-label" for="comment">Pesan Anda</label>
+          <textarea rows="5" placeholder="Keluh Kesah Anda" class="form-control form-control-md" id="comment" name="comment"></textarea>
         </div>
         <div class="modal-footer" style="border: none" x>
           <button class="button-more">Perlu bantuan</button>
         </div>
+        </form>
       </div>
     </div>
   </div>

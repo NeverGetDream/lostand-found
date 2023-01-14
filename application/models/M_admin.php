@@ -127,4 +127,25 @@ class M_admin extends CI_Model
 
         return $data;
     }
+
+    public function pesan(){
+        $nama = $this->input->post('nama');
+        $email = $this->input->post('email');
+        $comment = $this->input->post('comment');
+
+        $add_data = "INSERT INTO pesan_hubungi(nama_pengguna,email_pengguna,pesan) VALUES('$nama','$email','$comment')";
+        $this->db->query($add_data);
+    }
+
+    public function infoPesan() {
+        $getdata = "SELECT * FROM pesan_hubungi";
+        $dataraw = $this->db->query($getdata);
+        $data = $dataraw->result_array();
+        return $data; 
+    }
+
+    public function countPesan(){
+        $query = $this->db->get('pesan_hubungi');
+        return $query->num_rows();
+    }
 }
