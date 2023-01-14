@@ -34,7 +34,7 @@ class Profile extends CI_Controller{
         $data['greeting'] = $this->M_profile->getGreeting();
         $data['info_barang'] = $this->M_profile->getInfoBarang();
         
-        $data['title'] = 'Profile | Lost LostAndFound';
+        $data['title'] = 'Profile | LostAndFound';
         $data['status'] = 'profile';
         
         // View
@@ -54,7 +54,7 @@ class Profile extends CI_Controller{
         $p = $prov_raw->result_array();
         $data['prov'] = $p;
         
-        $data['title'] = 'Profile | Lost LostAndFound';
+        $data['title'] = 'Edit Profile | LostAndFound';
         $data['status'] = 'edit';
         $data['sourcecontrol'] = 'db';
 
@@ -81,7 +81,7 @@ class Profile extends CI_Controller{
             $p = $prov_raw->result_array();
             $data['prov'] = $p;
             
-            $data['title'] = 'Profile | Lost LostAndFound';
+            $data['title'] = 'Edit Profile | LostAndFound';
             $data['status'] = 'edit';
             $data['sourcecontrol'] = 'form_validation';
     
@@ -104,11 +104,64 @@ class Profile extends CI_Controller{
                 $this->M_profile->updateSession($uid);
                 redirect('profile');
             }
-
-
-
-
         }
+    }
 
+    public function security(){
+        $uid = $this->session->userdata['auth_data']['user_id'];
+
+        $data['title'] = 'Keamanan | LostAndFound';
+        $data['status'] = 'security';
+
+
+        $this->load->view('profileuser/head', $data);
+        $this->load->view('profileuser/nb', $data);
+        $this->load->view('profileuser/security');
+    }
+
+    public function passChange(){
+        $uid = $this->session->userdata['auth_data']['user_id'];
+
+        $this->form_validation->set_rules('old_pass', 'old_pass', 'trim|required', ['required' => 'Password lama tidak boleh kosong']);
+        $this->form_validation->set_rules('new_pass_confir', 'new_pass_confir', 'trim|required|min_length[5]', ['required' => 'Password baru tidak boleh kosong', 'min_length' => 'Password terlalu pendek']);
+
+        $status = $this->form_validation->run();
+        if ($status ==  false) {
+            $data['title'] = 'Keamanan | LostAndFound';
+            $data['status'] = 'security';
+    
+    
+            $this->load->view('profileuser/head', $data);
+            $this->load->view('profileuser/nb', $data);
+            $this->load->view('profileuser/security');
+        } else {
+            $this->_passChange($uid);
+        }
+    }
+    
+    private function _passChange($uid){
+        echo 'ubah';
+        $old_pass = $this->input->post('old_pass');
+        $new_pass = $this->input->post('new_pass_confir');
+
+        $password = $this->M_profile->getPass($uid);
+
+        if (password_verify($old_pass, $password)) {
+            $password = password_hash($new_pass, PASSWORD_DEFAULT);
+            $update = "UPDATE users SET password='$password' WHERE user_id='$uid'";
+            $this->db->query($update);
+
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+            Password berhasil diubah!
+            </div>');
+
+            redirect('profile/security');
+        }
+        else{
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
+            Maaf, Password lama tidak sesuai!
+            </div>');
+            redirect('profile/security');
+        }
     }
 }

@@ -139,4 +139,10 @@ class M_profile extends CI_Model {
         $new_data = $this->db->get_where('users', ['user_id' => $uid])->row_array();
         $this->session->set_userdata('auth_data', $new_data);
     }
+
+    public function getPass($uid){
+        $getp = "SELECT password FROM users WHERE user_id='$uid'";
+        $pass = $this->db->query($getp)->result_array();
+        return $pass[0]['password'];
+    }
 }

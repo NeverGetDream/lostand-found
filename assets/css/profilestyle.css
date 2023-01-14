@@ -102,3 +102,28 @@
     color: #fff !important;
     border: #f9a826 !important;
 }
+
+
+/* Ubah Sandi */
+.img-sec {
+    width: 100%;
+}
+
+.visibility-control {
+    width: 40px;
+    color: #fff;
+}
+
+.show-button {
+    background-color: #f9a826;
+}
+
+.show-button:hover {
+    background-color: rgba(249, 168, 38, 0.8) !important;
+    /* border: #f9a826 !important; */
+}
+
+.show-button:active {
+    background-color: #f9a826 !important;
+    border-color: #f9a826;    
+}
