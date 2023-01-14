@@ -28,7 +28,7 @@ class Profile extends CI_Controller{
         // User data
         $uid = $this->session->userdata['auth_data']['user_id'];
         $prfdata = $this->M_profile->getData($uid);
-        $data['userdata'] = $prfdata;
+        $data['data_profil'] = $prfdata;
         
         // Get Greeting
         $data['greeting'] = $this->M_profile->getGreeting();
@@ -48,15 +48,67 @@ class Profile extends CI_Controller{
     public function editProfile(){
         $uid = $this->session->userdata['auth_data']['user_id'];
         $prfdata = $this->M_profile->getData($uid);
-        $data['userdata'] = $prfdata;
+        $data['data_profil'] = $prfdata;
+        
+        $prov_raw = $this->db->get('prov');
+        $p = $prov_raw->result_array();
+        $data['prov'] = $p;
         
         $data['title'] = 'Profile | Lost LostAndFound';
         $data['status'] = 'edit';
+        $data['sourcecontrol'] = 'db';
 
         // View
         $this->load->view('profileuser/head', $data);
         $this->load->view('profileuser/nb', $data);
         $this->load->view('profileuser/edit', $data);
         // echo '<pre>'; print_r($data); echo '</pre>'; die();
+    }
+
+    public function doEdit(){
+        $this->form_validation->set_rules('fname', 'Nama Depan', 'required|trim');
+        $this->form_validation->set_rules('bname', 'Nama belakang', 'required|trim');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+        $this->form_validation->set_rules('no_hp', 'No. Handphone', 'required');
+        $this->form_validation->set_rules('provinsi', 'Provinsi', 'required');
+        $this->form_validation->set_rules('kota', 'Kota', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+
+
+        if ($this->form_validation->run() == false) {
+            // redirect('profile/');
+            $prov_raw = $this->db->get('prov');
+            $p = $prov_raw->result_array();
+            $data['prov'] = $p;
+            
+            $data['title'] = 'Profile | Lost LostAndFound';
+            $data['status'] = 'edit';
+            $data['sourcecontrol'] = 'form_validation';
+    
+            // View
+            $this->load->view('profileuser/head', $data);
+            $this->load->view('profileuser/nb', $data);
+            $this->load->view('profileuser/edit', $data);
+        }
+        else{
+            $data = $_FILES['new_img']['name'];
+            if(!empty($data)){
+                $uid = $this->session->userdata['auth_data']['user_id'];
+                $this->M_profile->updateDataWithImage($uid);
+                $this->M_profile->updateSession($uid);
+                redirect('profile');
+            }
+            else{
+                $uid = $this->session->userdata['auth_data']['user_id'];
+                $this->M_profile->updateDataOnly($uid);
+                $this->M_profile->updateSession($uid);
+                redirect('profile');
+            }
+
+
+
+
+        }
+
     }
 }

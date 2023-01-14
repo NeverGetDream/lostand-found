@@ -85,6 +85,7 @@ class Auth extends CI_Controller{
                 'first_name' => htmlspecialchars($this->input->post('fname', true)),
                 'last_name' => htmlspecialchars($this->input->post('bname', true)),
                 'email' => htmlspecialchars($this->input->post('email', true)),
+                'no_hp' => htmlspecialchars($this->input->post('no_hp', true)),
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                 'provinsi' => htmlspecialchars($this->input->post('provinsi', true)),
                 'kota' => htmlspecialchars($this->input->post('kota', true)),

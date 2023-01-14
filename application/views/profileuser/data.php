@@ -8,7 +8,7 @@
                 <a href="">
                     <img class="mx-auto d-block img" src="<?= base_url('assets/img/profile/').$profile_pict ?>" alt="">
                 </a>
-                <h2 class="greeting pt-4">Selamat <?= $greeting ?>, <?= $userdata['first_name'] ?></h2>
+                <h2 class="greeting pt-4">Selamat <?= $greeting ?>, <?= $data_profil['first_name'] ?></h2>
                 <p class="greeting-text">Lihat semua informasi diri Anda di sini. Semua aman dan terlindungi.</p>
             </div>
         </div>
@@ -32,17 +32,17 @@
                         <div class="row row-section">
                             <div class="col-md-6">
                                 <h2 class="tx-title">Nama Depan</h2>
-                                <p class="tx-body text-muted"><?= $userdata['first_name'] ?></p>
+                                <p class="tx-body text-muted"><?= $data_profil['first_name'] ?></p>
                             </div>
                             <div class="col-md-6">
                                 <h2 class="tx-title">Nama Belakang</h2>
-                                <p class="tx-body text-muted"><?= $userdata['last_name'] ?></p>
+                                <p class="tx-body text-muted"><?= $data_profil['last_name'] ?></p>
                             </div>
                         </div>
                         <div class="row row-section">
                             <div class="col-md-6">
                                 <h2 class="tx-title">E-Mail</h2>
-                                <p class="tx-body text-muted"><?= $userdata['email'] ?></p>
+                                <p class="tx-body text-muted"><?= $data_profil['email'] ?></p>
                             </div>
                             <div class="col-md-6">
                                 <h2 class="tx-title">Password</h2>
@@ -52,23 +52,23 @@
                         <div class="row row-section">
                             <div class="col-md-6">
                                 <h2 class="tx-title">Alamat</h2>
-                                <p class="tx-body text-muted"><?= $userdata['alamat'] ?></p>
+                                <p class="tx-body text-muted"><?= $data_profil['alamat'] ?></p>
                             </div>
                             <div class="col-md-6">
                                 <h2 class="tx-title">Kota</h2>
-                                <p class="tx-body text-muted"><?= $userdata['kota'] ?></p>
+                                <p class="tx-body text-muted"><?= $data_profil['kota'] ?></p>
                             </div>
                         </div>
 
                         <?php
-                        if($userdata['role_id'] == 1){
+                        if($data_profil['role_id'] == 1){
                             $role = 'Admin';
                         }
-                        elseif($userdata['role_id'] == 2){
+                        elseif($data_profil['role_id'] == 2){
                             $role = 'User/Pengguna';
                         }
 
-                        if($userdata['is_active'] == 1){
+                        if($data_profil['is_active'] == 1){
                             $status = 'Aktif';
                         }
                         else{

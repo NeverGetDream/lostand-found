@@ -63,3 +63,42 @@
 .row-section {
     padding-top: 10px;
 }
+
+/* Edit Profile */
+.head-tx {
+    color: #f9a826;
+}
+
+.tx-main {
+    color: #f9a826;
+    font-size: larger;
+}
+
+.img-hint {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18pt;
+    /* border: 1px solid; */
+    color: #f9a826;
+    text-align: center !important;
+}
+
+.in-file {
+    opacity: 0;
+}
+
+.change-img-but {
+    width: 150px;
+    border-color: #f9a826;
+    background-color: #fff;
+}
+
+.main-but {
+    background-color: #f9a826;
+    border: #f9a826;
+}
+
+.main-but:hover{
+    background-color: rgba(249, 168, 38, 0.8) !important;
+    color: #fff !important;
+    border: #f9a826 !important;
+}
