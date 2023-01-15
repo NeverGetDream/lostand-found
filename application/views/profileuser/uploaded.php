@@ -122,6 +122,9 @@
 
                                             </div>
                                             <div class="modal-footer">
+                                                <a href="'. base_url('barang/edit/').$row['id_barang'] .'">
+                                                    <button class="btn btn-secondary" type="button" href="tes">Edit</button>
+                                                </a>
                                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Tutup</button>
                                             </div>
                                         </div>
