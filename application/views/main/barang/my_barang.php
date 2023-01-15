@@ -15,7 +15,7 @@
               />
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-6 mt-3">
             <h4 style="font-weight: 700">'.$row['nama_barang'].'</h4>
             <span style="font-weight: 500">'.$nama.'</span>
             <hr />
@@ -72,43 +72,3 @@
         </div>
       </div>
     </div>
-    <!DOCTYPE html>
-
-<footer class="container-footer footer fixed-bottom">
-    <div class="page-one">
-      <div class="box">
-        <figure>
-          <a href=<?= base_url('main') ?>>
-            <img src="<?= base_url('assets/'); ?>img/footer-logo.png" alt="Lost and found">
-          </a>
-        </figure>
-      </div>
-      <div class="box">
-        <div class="box-center">
-        <?php
-          if(!empty($this->session->userdata['auth_data'])){
-            echo '
-              <a href="'.base_url() .'main/barang" class="active">Temukan Barang</a>
-            ';
-          }
-        ?>
-          <a href=<?= base_url('main/tentang') ?> class="active">Tentang Kami</a>
-          <a href=<?= base_url('main/hubungi') ?> class="active">Hubungi Kami</a>
-        </div>
-      </div>
-      <div class="box">
-        <h2>Ikuti Kami</h2>
-        <div class="social-media">
-          <i class="bi bi-facebook"></i>
-          <i class="bi bi-instagram"></i>
-          <i class="bi bi-twitter"></i>
-          <i class="bi bi-youtube"></i>
-        </div>
-      </div>
-    </div>
-    <a href=<?= base_url('main/hubungi') ?> class="active" style="text-decoration: none;">
-      <div class="page-two">
-        <small>&copy; 2022 <b>LOST AND FOUND</b> - PT. Kerja Kelompok Sukses</small>
-      </div>
-    </a>
-    </footer>

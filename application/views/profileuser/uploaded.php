@@ -8,7 +8,7 @@
     <div style="padding-top: 120px; padding-bottom: 20px;" class="container">
         <div class="row">
             <div class="col-md-10" style="padding-right: 50px;">
-                <h2>Azwar kasih text apa bagus di sini!</h2>
+                <h2 style="">Daftar Barang temuan Anda</h2>
             </div>
             <div class="col-md-2" style="padding-right: 50px;">
                 <div class="dropdown">
