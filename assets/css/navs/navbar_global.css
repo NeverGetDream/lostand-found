@@ -59,15 +59,20 @@ header img {
     font-style: oblique;
 }
 
-.profile, .edit, .security {
+.home:hover, .bantuan:hover, .tentang:hover, .barang:hover, .hubungi:hover{
+    color: #fff !important;
+}
+
+.profile, .edit, .security, .uploaded {
     background-color: #f9a826 !important;
     color: #fff !important;
     font-style: oblique;
 }
 
-.home:hover, .bantuan:hover, .tentang:hover, .barang:hover, .hubungi:hover{
+.profile:hover, .edit:hover, .security:hover, .uploaded:hover {
     color: #fff !important;
 }
+
 
 .nav-bar .register{
     color: #F9A826;

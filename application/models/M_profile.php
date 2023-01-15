@@ -145,4 +145,49 @@ class M_profile extends CI_Model {
         $pass = $this->db->query($getp)->result_array();
         return $pass[0]['password'];
     }
+
+
+    public function getUploadedData($uid, $kat_id){
+        if($kat_id == null){
+            $getdata =  "SELECT * FROM barang_hilang
+                        LEFT JOIN kategori ON kategori.id_kategori = barang_hilang.id_kategori
+                        LEFT JOIN users ON barang_hilang.id_user = users.user_id
+                        LEFT JOIN prov ON barang_hilang.id_prov=prov.nomor
+                        WHERE id_user='$uid'";
+        }
+        else{
+            $getdata =  "SELECT * FROM barang_hilang
+                        LEFT JOIN kategori ON kategori.id_kategori = barang_hilang.id_kategori
+                        LEFT JOIN users ON barang_hilang.id_user = users.user_id
+                        LEFT JOIN prov ON barang_hilang.id_prov=prov.nomor
+                        WHERE barang_hilang.id_user='$uid' AND barang_hilang.id_kategori='$kat_id'";
+        }
+        $dataraw = $this->db->query($getdata);
+        $data = $dataraw->result_array();
+        return $data;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public function getkategori(){
+        $get = "SELECT nomor, kategori FROM kategori";
+        $rawdata = $this->db->query($get);
+        $data = $rawdata->result_array();
+        return $data;
+    }
+
+    public function getSelectKat($id_kat){
+        $get = "SELECT kategori FROM kategori WHERE nomor='$id_kat'";
+        $rawdata = $this->db->query($get);
+        $data = $rawdata->result_array();
+        return $data[0]['kategori'];
+    }
 }

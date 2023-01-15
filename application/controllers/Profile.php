@@ -140,7 +140,6 @@ class Profile extends CI_Controller{
     }
     
     private function _passChange($uid){
-        echo 'ubah';
         $old_pass = $this->input->post('old_pass');
         $new_pass = $this->input->post('new_pass_confir');
 
@@ -164,4 +163,66 @@ class Profile extends CI_Controller{
             redirect('profile/security');
         }
     }
+
+
+
+
+    // Start => Kode Barang yang telah di Upload
+
+    public function uploaded($kat){
+        $uid = $this->session->userdata['auth_data']['user_id'];
+        if($kat == '0'){
+            $this->databarang($uid);
+        }
+        else{
+            $this->databarang($uid, $kat);
+        }
+    }
+
+    public function __call($name, $args){
+        if($name === 'databarang'){
+            // echo '<pre>'; print_r($args); echo '</pre>'; die();
+            $kat = $this->M_profile->getkategori();
+
+            $data['kat'] = $kat;
+            $data['title'] = 'Barang Yang Diupload | LostAndFound';
+            $data['status'] = 'uploaded';
+
+            $error['back'] = 'profile/uploaded/0';
+            switch (count($args)) {
+                case '1':
+                    $data['updata'] = $this->M_profile->getUploadedData($args[0], null);
+                    $data['kat_select'] = 'Kategori';
+
+                    $this->load->view('profileuser/head', $data);
+                    $this->load->view('profileuser/nb', $data);
+                    
+                    if($data['updata'] != null){
+                        $this->load->view('profileuser/uploaded', $data);
+                    }
+                    else{
+                        $this->load->view('emptydata', $error);
+                    }
+                    break;
+                case '2':
+                    $data['updata'] = $this->M_profile->getUploadedData($args[0], $args[1]);
+                    $data['kat_select'] = $this->M_profile->getSelectKat($args[1]);
+                    
+                    $this->load->view('profileuser/head', $data);
+                    $this->load->view('profileuser/nb', $data);
+
+                    if($data['updata'] != null){
+                        $this->load->view('profileuser/uploaded', $data);
+                    }
+                    else{
+                        $this->load->view('emptydata', $error);
+                    }
+                    break;
+            }
+        }
+    }
+
+    // End => Kode Barang yang telah di Upload
+
+
 }

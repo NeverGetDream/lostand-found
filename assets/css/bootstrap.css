@@ -10948,3 +10948,21 @@ textarea.form-control-lg {
 .mt-8 {
   margin-top: 12rem !important;
 }
+
+
+/* Custom Global CSS */
+body::-webkit-scrollbar {
+  width: 14px;
+  /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #F9A826;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: white;
+  width: 10px;
+  border-radius: 20px;
+  border: 4px solid #F9A826;
+}

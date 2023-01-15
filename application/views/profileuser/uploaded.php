@@ -1,47 +1,37 @@
 <head>
     <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
     <script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <script src="<?= base_url('assets/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
 </head>
 
 <body>
     <div style="padding-top: 120px; padding-bottom: 20px;" class="container">
-        <div class="row container">
-            <!-- Col1 -->
-            <div class="col-md-8 col-sm-8 col-lg-7" style="padding-bottom: 8px;">
-                <div class="container-fluid">
-                    <form class="d-flex">
-                        <input name="key" class="form-control me-4" type="search" placeholder="Search" aria-label="Search" style="border-color: #f9a826;" />
-                        <button class="btn btn-outline-warning" type="submit">Search</button>
-                    </form>
-                </div>
+        <div class="row">
+            <div class="col-md-10" style="padding-right: 50px;">
+                <h2>Azwar kasih text apa bagus di sini!</h2>
             </div>
-            <!-- Col2 -->
-            <div class="col-md-4 col-sm-4 col-lg-1" style="padding-right: 50px;">
+            <div class="col-md-2" style="padding-right: 50px;">
                 <div class="dropdown">
                     <button class="btn btn-warning dropdown-toggle btn btn-warning" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Kategori
+                        <?= $kat_select ?>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <?php
-                        foreach ($kat as $k) {
+                        if($kat_select != 'Kategori'){
                             echo '
-                                <a class="dropdown-item" href="' . base_url('main/barang_kat/') . $k['nomor'] . '">' . $k['kategori'] . '</a>
+                                <a class="dropdown-item" href="'. base_url('profile/uploaded/0') .'">Tampilkan Semua</a>
+                            ';
+                        }
+                        foreach ($kat as $k) {
+                            if($kat_select == $k['kategori']){
+                                continue;
+                            }
+                            echo '
+                                <a class="dropdown-item" href="' . base_url('profile/uploaded/') . $k['nomor'] . '">' . $k['kategori'] . '</a>
                             ';
                         }
                         ?>
                     </div>
-                </div>
-            </div>
-            <!-- Col3 -->
-            <link href="<?= base_url('assets/barang/css/') ?>uploadstyle.css" rel="stylesheet">
-            <div class="col-md-12 col-sm-12 col-lg-4">
-                <div style="padding-top: 6px; padding-left: 10px;">
-                    <p id="uptext">
-                        Menemukan barang atau lainnya?
-                        <a href="<?= base_url('main/found') ?>" id="upfile">UPLOAD</a>
-                    </p>
                 </div>
             </div>
         </div>
@@ -57,9 +47,9 @@
                     <div class="container">
                         <div class="row">
                             <?php
-                            foreach ($barang as $row) {
+                            foreach ($updata as $row) {
                                 $des = substr($row['des_barang'], 0, 25);
-                                $nama = $row['first_name'].' '.$row['last_name'];
+                                $nama = $row['first_name'] . ' ' . $row['last_name'];
                                 echo '
                                     <div class="col-1 col-sm-6 col-md-4 col-lg-3 mb-2">
                                         <div class="card body-text">
@@ -75,9 +65,6 @@
                                                 </div>
                                             </a>
                                             <button class="btn btn-more-info" data-toggle="modal" data-target="#InfoModal' . $row['id_barang'] . '">Selengkapnya...</button>
-                                            <div class="card-read-more" id="read">
-                                                <a href="'.base_url('barang/info/').$row['id_barang'].'" class="btn btn-link btn-block">INI PUNYAKU!</a>
-                                            </div>
                                         </div>
                                     </div>
 
@@ -97,37 +84,37 @@
                                                             <tr style="text-align: left;">
                                                                 <td style="width: 30%;">Penemu </td>
                                                                 <td style="width: 2%;">: </td>
-                                                                <td style="width: auto;">'. $nama .'</td>
+                                                                <td style="width: auto;">' . $nama . '</td>
                                                             </tr>
                                                             <tr style="text-align: left;">
                                                                 <td style="width: 30%;">Kategori </td>
                                                                 <td style="width: 2%;">: </td>
-                                                                <td style="width: auto;">'. $row['kategori'] .'</td>
+                                                                <td style="width: auto;">' . $row['kategori'] . '</td>
                                                             </tr>
                                                             <tr style="text-align: left;">
                                                                 <td style="width: 30%;">Deskripsi </td>
                                                                 <td style="width: 2%;">: </td>
-                                                                <td style="width: auto;">'. $row['des_barang'] .'</td>
+                                                                <td style="width: auto;">' . $row['des_barang'] . '</td>
                                                             </tr>
                                                             <tr style="text-align: left;">
                                                                 <td style="width: 30%;">Lokasi </td>
                                                                 <td style="width: 2%;">: </td>
-                                                                <td style="width: auto;">'. $row['lokasi'] .'</td>
+                                                                <td style="width: auto;">' . $row['lokasi'] . '</td>
                                                             </tr>
                                                             <tr style="text-align: left;">
                                                                 <td style="width: 30%;">Dititip di </td>
                                                                 <td style="width: 2%;">: </td>
-                                                                <td style="width: auto;">'. $row['temp_titip'] .'</td>
+                                                                <td style="width: auto;">' . $row['temp_titip'] . '</td>
                                                             </tr>
                                                             <tr style="text-align: left;">
                                                                 <td style="width: 30%;">Kota </td>
                                                                 <td style="width: 2%;">: </td>
-                                                                <td style="width: auto;">'. $row['kota'] .'</td>
+                                                                <td style="width: auto;">' . $row['kota'] . '</td>
                                                             </tr>
                                                             <tr style="text-align: left;">
                                                                 <td style="width: 30%;">Provinsi </td>
                                                                 <td style="width: 2%;">: </td>
-                                                                <td style="width: auto;">'. $row['provinsi'] .'</td>
+                                                                <td style="width: auto;">' . $row['provinsi'] . '</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
