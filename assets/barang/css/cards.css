@@ -28,7 +28,7 @@ html, body {
   margin-bottom: 15px
 }
 
-h1.heading {
+h1 .heading {
   color: #fff;
   font-size: 1.15em;
   font-weight: 900;
@@ -162,4 +162,10 @@ h1.heading {
 
 .btn-more-info:focus{
   outline: none !important;
+}
+
+.info-text-pg {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  font-size: 18px;
+  font-weight: 450;
 }

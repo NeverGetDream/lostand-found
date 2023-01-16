@@ -58,23 +58,23 @@
                         <div class="row">
                             <?php
                             foreach ($barang as $row) {
-                                $des = substr($row['des_barang'], 0, 25);
+                                $des = substr($row['des_barang'], 0, 30);
                                 $nama = $row['first_name'].' '.$row['last_name'];
                                 echo '
                                     <div class="col-1 col-sm-6 col-md-4 col-lg-3 mb-2">
                                         <div class="card body-text">
-                                            <a class="img-card" href="' . base_url('image/barang/hilang/') . $row['img_name'] . '" target="blank">
-                                                <img src="' . base_url('image/barang/hilang/') . $row['img_name'] . '" />
+                                            <a class="img-card" href="'. base_url('image/barang/hilang/').$row['img_name'] .'" target="blank">
+                                                <img src="' . base_url('image/barang/hilang/').$row['img_name'] . '" />
                                             </a>
-                                            <a href="" class="card-main-text body-text open-modal" style="height: 170px">
+                                            <a href="'.base_url('barang/info/').$row['id_barang'].'" class="card-main-text body-text open-modal" style="height: 190px">
                                                 <div class="card-content">
-                                                    <h4 class="card-title" id="card-head">' . $row['nama_barang'] . '</h4>
-                                                    <p class="card-tittle card-row"> Kategori: ' . $row['kategori'] . '</p>
-                                                    <p class="card-tittle card-row">Lokasi : ' . $row['lokasi'] . '</p>
-                                                    <p class="card-row">' . $des . '.....</p>
+                                                    <h4 class="card-title" id="card-head">'. $row['nama_barang'] .'</h4>
+                                                    <p class="card-tittle card-row"> Kategori: '. $row['kategori'] .'</p>
+                                                    <p class="card-tittle card-row">Lokasi : '. $row['lokasi'] .'</p>
+                                                    <p class="card-row">'. $des .'.....</p>
                                                 </div>
                                             </a>
-                                            <button class="btn btn-more-info" data-toggle="modal" data-target="#InfoModal' . $row['id_barang'] . '">Selengkapnya...</button>
+                                            <button class="btn btn-more-info" data-toggle="modal" data-target="#InfoModal'.$row['id_barang'] . '">Selengkapnya...</button>
                                             <div class="card-read-more" id="read">
                                                 <a href="'.base_url('barang/info/').$row['id_barang'].'" class="btn btn-link btn-block">INI PUNYAKU!</a>
                                             </div>
@@ -139,7 +139,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                    </div>
                                 ';
                             }
 

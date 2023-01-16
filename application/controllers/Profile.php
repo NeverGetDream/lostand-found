@@ -181,7 +181,6 @@ class Profile extends CI_Controller{
 
     public function __call($name, $args){
         if($name === 'databarang'){
-            // echo '<pre>'; print_r($args); echo '</pre>'; die();
             $kat = $this->M_profile->getkategori();
 
             $data['kat'] = $kat;
@@ -192,7 +191,7 @@ class Profile extends CI_Controller{
             switch (count($args)) {
                 case '1':
                     $data['updata'] = $this->M_profile->getUploadedData($args[0], null);
-                    $data['kat_select'] = 'Kategori';
+                    $data['kat_select'] = 'Kategori Barang';
 
                     $this->load->view('profileuser/head', $data);
                     $this->load->view('profileuser/nb', $data);
@@ -224,5 +223,22 @@ class Profile extends CI_Controller{
 
     // End => Kode Barang yang telah di Upload
 
+    public function request($page){
+        $uid = $this->session->userdata['auth_data']['user_id'];
+        $this->load->model('M_barang');
+        if($page == 1){
+            // 
+        }
+        elseif($page == 2){
+            $out = $this->M_barang->getReq($uid);
+            $data['data'] = $out;
+            $data['title'] = 'Permintaan Verivikasi | LostAndFound';
+            $data['status'] = 'uploaded';
+
+            $this->load->view('profileuser/head', $data);
+            $this->load->view('profileuser/nb', $data);
+            $this->load->view('profileuser/out', $data);
+        }
+    }
 
 }

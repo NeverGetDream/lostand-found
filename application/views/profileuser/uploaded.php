@@ -7,10 +7,10 @@
 <body>
     <div style="padding-top: 120px; padding-bottom: 20px;" class="container">
         <div class="row">
-            <div class="col-md-10" style="padding-right: 50px;">
+            <div class="col-md-8" style="padding-right: 50px;">
                 <h2 style="">Daftar Barang temuan Anda</h2>
             </div>
-            <div class="col-md-2" style="padding-right: 50px;">
+            <div class="col-md-2" style="padding-right: 50px;">            
                 <div class="dropdown">
                     <button class="btn btn-warning dropdown-toggle btn btn-warning" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?= $kat_select ?>
@@ -31,6 +31,19 @@
                             ';
                         }
                         ?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2" style="padding-right: 50px;">            
+
+                <div class="dropdown">
+                    <button class="btn btn-warning dropdown-toggle btn btn-warning" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Opsi Lainnya
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="<?= base_url('profile/request/1') ?>">Daftar Request</a>
+                        <a class="dropdown-item" href="<?= base_url('profile/request/2') ?>">Request Anda</a>
                     </div>
                 </div>
             </div>
@@ -126,9 +139,27 @@
                                                     <button class="btn btn-secondary" type="button" href="tes">Edit</button>
                                                 </a>
                                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Tutup</button>
-                                                <a href="'. base_url('').$row['id_barang'] .'">
-                                                    <button class="btn btn-secondary" type="button" href="tes">Hapus</button>
-                                                </a>
+                                                <button class="btn btn-secondary" data-toggle="modal" data-target="#delete'. $row['id_barang'] .'">Hapus</button>
+
+
+                                            </div>
+
+
+                                            
+                                            <!-- Delete Modal -->
+                                            <div class="modal fade" id="delete'.$row['id_barang'].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-top: 80px;">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Anda yakin ingin menghapus data tersebut?</h5>
+                                                        </div>
+                                                        <div class="modal-body">Peringatan! Data yang dihapus tidak dapat dikembalikan.</div>
+                                                        <div class="modal-footer">
+                                                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                                                            <a class="btn btn-warning" href="'. base_url('barang/delete/').$row['id_barang'] .'">Hapus</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

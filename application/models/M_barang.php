@@ -171,4 +171,65 @@ class M_barang extends CI_Model
 
         return $newimgname;
     }
+
+    public function deleteData($id){
+        $asad = "SELECT img_name FROM barang_hilang WHERE id_barang=$id";
+        $asf = $this->db->query($asad)->result_array();
+        $img = $asf[0]['img_name'];
+        $path = './image/barang/hilang/';
+        $rem = $path.$img;
+        unlink($rem);
+
+
+        $wer = "DELETE FROM barang_hilang WHERE id_barang=$id";
+        $this->db->query($wer);
+        return;
+    }
+
+    public function getVerifData($id){
+        // $raw = $this->db->get_where('barang_hilang', array('id_barang' => $id));
+        $qwe = "SELECT * FROM barang_hilang LEFT JOIN prov ON barang_hilang.id_prov = prov.nomor LEFT JOIN kategori ON barang_hilang.id_kategori = kategori.nomor WHERE barang_hilang.id_barang=$id";
+        $raw = $this->db->query($qwe);
+        $data = $raw->result_array();
+
+        return $data[0];
+    }
+
+    public function getUser($id_barang){
+        $qwr = "SELECT id_user FROM barang_hilang WHERE id_barang=$id_barang";
+        $id_raw = $this->db->query($qwr);
+        $idx = $id_raw->result_array();
+        $id = $idx[0]['id_user'];
+
+
+        $raw = $this->db->get_where('users', array('user_id' => $id));
+        $data = $raw->result_array();
+        return $data[0];
+    }
+
+    
+    public function doImgVerifUpload($name){
+        $img_name = $_FILES[$name]['name'];
+        $new_name = str_replace(' ', '', $img_name);
+
+        $this->load->helper('form');
+
+        $config['upload_path'] = './image/request/';
+        $config['allowed_types'] = 'jpg|png|jpeg|webp';
+        $config['max_size'] = '2048000';
+        $config['file_name'] = $new_name;
+
+        $this->load->library('upload', $config);
+
+        $this->upload->do_upload($name);
+
+        return $new_name;
+    }
+
+    public function getReq($uid){
+        $oit = "SELECT * FROM verif_request LEFT JOIN barang_hilang ON verif_request.id_barang = barang_hilang.id_barang LEFT JOIN users ON barang_hilang.id_user = users.user_id WHERE verif_request.id_user=$uid";
+        $raw = $this->db->query($oit);
+        $data = $raw->result_array();
+        return $data;
+    }
 }

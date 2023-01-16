@@ -71,7 +71,7 @@
                                 <input type="hidden" name="thread_id" value="<?= $row['thread_id'] ?>">
                                 <textarea class="form-control" name="comment" id="comment" rows="1" placeholder="Komentar" oninput="cek(<?= $row['thread_id'] ?>)"></textarea>
                                 <div align="right">
-                                    <button type="submit" id="<?= $row['thread_id'] ?>" class="btn btn-warning mt-2 disabled" style=" color: #fff; background-color: #f9a826; border: 2px solid #f9a826; border-radius: 15px; text-decoration: none; padding: 10px 10px; font-weight: 500;">
+                                    <button type="submit" id="<?= $row['thread_id'] ?>" class="btn btn-warning mt-2 disabled" style=" color: #fff; background-color: #f9a826; border: 2px solid #f9a826; border-radius: 15px; text-decoration: none; padding: 5px 5px; font-weight: 500;">
                                         Komentar
                                     </button>
                                 </div>
@@ -83,12 +83,16 @@
                                 foreach($comment as $c){
                                     if($c['id_thread'] == $row['thread_id']){    
                                 ?>
-                                <div class="panel panel-primary pb-2" style="margin-left: 20px">
+                                <div class="panel panel-primary" style="margin-left: 20px">
                                     <div class="panel-heading">
-                                        <img src="<?= base_url('assets/img/profile/').$c['image'] ?>" class="rounded-circle" alt="profile" style="width: 40px; height: 40px" />
+                                        <img src="<?= base_url('assets/img/profile/').$c['image'] ?>" class="rounded-circle" alt="profile" style="width: 30px; height: 30px" />
                                         <b><?= $c['first_name'] ?></b>
                                     </div>
-                                    <div class="panel-body"><?= $c['comment'] ?></div>
+                                    <div class="panel-body" style="padding-left: 35px;">
+                                        <p>
+                                            <?= $c['comment'] ?>
+                                        </p>    
+                                    </div>
                                 </div>
                                 <?php }} ?>
                             <!-- End Loop -->
@@ -110,16 +114,21 @@
                 <div class="col-sm-3 none">
                     <div class="card">
                         <div class="card-body p-4">
+                            <?php
+                            $full_name = $this->session->userdata['auth_data']['first_name'].' '.$this->session->userdata['auth_data']['last_name'];
+                            $img_file = $this->session->userdata['auth_data']['image'];
+                            $mail = $this->session->userdata['auth_data']['email'];
+                            ?>
                             <div class="d-flex">
-                                <img src="assets/img/lostlogo.png" class="rounded-circle" alt="profile" style="width: 40px; height: 40px" />
-                                <h5 style="margin-left: 10px">Azwar Meizia Kusumah</h5>
+                                <img src="<?= base_url('assets/img/profile/').$img_file ?>" class="rounded-circle" alt="profile" style="width: 40px; height: 40px" />
+                                <h5 style="margin-left: 10px"><?= $full_name ?></h5>
                             </div>
                             <hr />
                             <h5>Email</h5>
-                            <p>email@gmail.com</p>
+                            <p><?= $mail ?></p>
                             <hr />
                             <h5 style="margin-bottom: 20px">Cari barangmu</h5>
-                            <a href="login.html" style="color: #fff; background-color: #f9a826; border: 2px solid #f9a826; border-radius: 15px; text-decoration: none; padding: 10px 10px; font-weight: 500;">
+                            <a href="<?= base_url('main/barang') ?>" style="color: #fff; background-color: #f9a826; border: 2px solid #f9a826; border-radius: 15px; text-decoration: none; padding: 10px 10px; font-weight: 500;">
                                 Temukan Barang anda
                             </a>
                         </div>

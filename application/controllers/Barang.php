@@ -50,6 +50,11 @@ class Barang extends CI_Controller
         $this->load->view('main/barang/editdata', $data);
     }
 
+    public function delete($id){
+        $this->M_barang->deleteData($id);
+        redirect('profile/uploaded/0');
+    }
+
     public function saveEdit(){
         $uid = $this->session->userdata['auth_data']['user_id'];
 
@@ -90,5 +95,59 @@ class Barang extends CI_Controller
             redirect('profile/uploaded/0');
         }
 
+    }
+
+
+    public function verifRequest(){
+        $uid = $this->session->userdata['auth_data']['user_id'];
+        $id_barang = $this->input->post('id_barang');
+
+        $dataReq = $this->M_barang->getVerifData($id_barang);
+
+        $data['data'] = $dataReq;
+        $data['title'] = 'Konfirmasi | LostAndFound';
+
+        $user = $this->M_barang->getUser($id_barang);
+        $data['first_name'] = $user['first_name'];
+        $data['last_name'] = $user['last_name'];
+        $data['no_hp'] = $user['no_hp'];
+        $data['prov'] = $user['provinsi'];
+        $data['kota'] = $user['kota'];
+        $data['alamat'] = $user['alamat'];
+        $data['image'] = $user['image'];
+
+        $this->load->view('main/barang/askVerifikasi', $data);
+    }
+
+    public function upVerifFile(){
+        $id_barang = $this->input->post('id_barang');
+        $uid = $this->session->userdata['auth_data']['user_id'];
+
+        $img1 = '';
+        $img2 = '';
+        $img3 = '';
+        $img4 = '';
+        $img5 = '';
+
+        if(!empty($_FILES['imgA'])){
+            $img1 = $this->M_barang->doImgVerifUpload('imgA');
+        }
+        if(!empty($_FILES['imgB'])){
+            $img2 = $this->M_barang->doImgVerifUpload('imgB');
+        }
+        if(!empty($_FILES['imgC'])){
+            $img3 = $this->M_barang->doImgVerifUpload('imgC');
+        }
+        if(!empty($_FILES['imgD'])){
+            $img4 = $this->M_barang->doImgVerifUpload('imgD');
+        }
+        if(!empty($_FILES['imgE'])){
+            $img5 = $this->M_barang->doImgVerifUpload('imgE');
+        }
+
+        $asd = "INSERT INTO verif_request(id_barang, id_user, img_A, img_B, img_C, img_D, img_E) VALUES($id_barang, $uid, '$img1', '$img2', '$img3', '$img4', '$img5')";
+        $this->db->query($asd);
+
+        redirect('main/barang');
     }
 }
