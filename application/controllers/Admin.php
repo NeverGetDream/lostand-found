@@ -125,11 +125,13 @@ class Admin extends CI_Controller
         $this->pagination->initialize($config);
         $data['start'] = $this->uri->segment(3);
         $data['list'] = $this->M_admin->getUser($config['per_page'], $data['start']);
+        
         $data['title'] = 'List user | LostAndFound';
         $data['image'] = $this->session->userdata['auth_data']['image'];
         $data['fname'] = $this->session->userdata['auth_data']['first_name'];
         $data['bname'] = $this->session->userdata['auth_data']['last_name'];
         $data['user'] = $this->session->userdata['auth_data'];
+
         $this->load->view('components/header', $data);
         $this->load->view('components/sidebar', $data);
         $this->load->view('components/topbar', $data);

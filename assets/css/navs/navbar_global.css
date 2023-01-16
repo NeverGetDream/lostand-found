@@ -53,13 +53,13 @@ header img {
     border: 2px solid #F9A826;
 }
 
-.home, .bantuan, .tentang, .barang, .hubungi {
+.home, .bantuan, .tentang, .barang, .hubungi, .threads {
     background-color: #f9a826 !important;
     color: #fff !important;
     font-style: oblique;
 }
 
-.home:hover, .bantuan:hover, .tentang:hover, .barang:hover, .hubungi:hover{
+.home:hover, .bantuan:hover, .tentang:hover, .barang:hover, .hubungi:hover, .threads:hover{
     color: #fff !important;
 }
 

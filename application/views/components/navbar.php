@@ -39,31 +39,33 @@
     <nav class="nav-bar">
       <ul>
         <!-- Paging -->
-        <li><a href=<?= base_url(''); ?> class="active <?php if ($status == 'home') {
-                                                          echo $status;
-                                                        } ?>">HOME</a></li>
+        <li><a href=<?= base_url(''); ?> class="active <?php if ($status == 'home') { echo $status; } ?>">HOME</a></li>
         <?php
         if (!empty($this->session->userdata['auth_data'])) {
           if ($status == 'barang') {
             echo '
-                <li><a href="' . base_url() . 'main/barang" class="active barang">TEMUKAN BARANG</a></li>
+                <li><a href="'. base_url('main/barang') .'" class="active barang">TEMUKAN BARANG</a></li>
               ';
           } else {
             echo '
-              <li><a href="' . base_url() . 'main/barang" class="active">TEMUKAN BARANG</a></li>
+              <li><a href="'. base_url('main/barang') .'" class="active">TEMUKAN BARANG</a></li>
+              ';
+          }
+
+          if ($status == 'threads') {
+            echo '
+                <li><a href="'. base_url('main/threads') .'" class="active threads">THREADS</a></li>
+              ';
+          } else {
+            echo '
+              <li><a href="'. base_url('main/threads') .'" class="active">THREADS</a></li>
               ';
           }
         }
         ?>
-        <li><a href=<?= base_url('main/help'); ?> class="active <?php if ($status == 'bantuan') {
-                                                                  echo $status;
-                                                                } ?>">BANTUAN</a></li>
-        <li><a href=<?= base_url('main/tentang'); ?> class="active <?php if ($status == 'tentang') {
-                                                                      echo $status;
-                                                                    } ?>">TENTANG KAMI</a></li>
-        <li><a href=<?= base_url('main/hubungi'); ?> class="active <?php if ($status == 'hubungi') {
-                                                                      echo $status;
-                                                                    } ?>">HUBUNGI KAMI</a></li>
+        <li><a href=<?= base_url('main/help'); ?> class="active <?php if ($status == 'bantuan') { echo $status; } ?>">BANTUAN</a></li>
+        <li><a href=<?= base_url('main/tentang'); ?> class="active <?php if ($status == 'tentang') { echo $status; } ?>">TENTANG KAMI</a></li>
+        <!-- <li><a href=<?= base_url('main/hubungi'); ?> class="active <?php if ($status == 'hubungi') { echo $status; } ?>">HUBUNGI KAMI</a></li> -->
 
         <?php
         if (empty($this->session->userdata['auth_data'])) {
@@ -76,7 +78,7 @@
           $profile_pict = $this->session->userdata['auth_data']['image'];
           echo '
               <li>
-                <h4 id="title_name" style="color: #F9A826; padding-top: 32px; font-size: 20px; margin-right: 20px; margin-left: 20px;">Halo, ' . $this->session->userdata['auth_data']['first_name'] . '</h4>
+                <h4 id="title_name" style="color: #F9A826; padding-top: 32px; font-size: 20px; margin-right: 20px; margin-left: 20px;">Hi, ' . $this->session->userdata['auth_data']['first_name'] . '</h4>
               </li> 
               <li>
                 <a href="' . base_url('profile') . '" class="profileimg">
