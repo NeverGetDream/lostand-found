@@ -209,7 +209,12 @@
 
                                         <!-- Submit -->
                                         <div class="pt-1 mb-4">
-                                            <button class="btn btn-dark btn-lg btn-block" type="submit">
+                                            <a href="<?= base_url('profile/uploaded/0') ?>" style="text-decoration: none;">
+                                                <button class="btn btn-dark btn-md btn-block" type="button">
+                                                    Batal
+                                                </button>
+                                            </a>
+                                            <button class="btn btn-dark btn-md btn-block" type="submit">
                                                 Simpan
                                             </button>
                                         </div>

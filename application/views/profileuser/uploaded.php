@@ -126,6 +126,9 @@
                                                     <button class="btn btn-secondary" type="button" href="tes">Edit</button>
                                                 </a>
                                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Tutup</button>
+                                                <a href="'. base_url('').$row['id_barang'] .'">
+                                                    <button class="btn btn-secondary" type="button" href="tes">Hapus</button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
