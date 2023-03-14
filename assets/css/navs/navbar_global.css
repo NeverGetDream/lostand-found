@@ -115,6 +115,7 @@ header img {
         background: #F9A826;
         margin: 6px 0;
     }
+
     .nav-bar{
         height: 0px;
         position: absolute;
@@ -127,6 +128,7 @@ header img {
         background: rgb(253, 253, 253);
         transition: 0.3s;
     }
+    
     .nav-bar.active{
         height: 500px;
 

@@ -26,7 +26,6 @@
 							<pre class="info-text-pg">Lokasi		: '.$row['lokasi'].'</pre>
 							<pre class="info-text-pg">Kota			: '.$row['kota'].'</pre>
 							<pre class="info-text-pg">Provinsi		: '.$row['provinsi'].'</pre>
-							<pre class="info-text-pg">Deskripsi		: '.$row['des_barang'].'</pre>
 						</div>
 
             			<hr />

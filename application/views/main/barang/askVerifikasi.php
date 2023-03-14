@@ -41,6 +41,9 @@
                             Barang
                         </h5>
                         <hr />
+                        <?php
+                            $sub_des = substr($data['des_barang'], 0, 60);
+                        ?>
 
                         <div>
                             <pre class="info-text-pg">Penemu		: <?= $first_name ?></pre>
@@ -48,7 +51,7 @@
                             <pre class="info-text-pg">Lokasi		: <?= $data['lokasi'] ?></pre>
                             <pre class="info-text-pg">Kota			: <?= $data['kota'] ?></pre>
                             <pre class="info-text-pg">Provinsi		: <?= $data['provinsi'] ?></pre>
-                            <pre class="info-text-pg">Deskripsi		: <?= $data['des_barang'] ?></pre>
+                            <pre class="info-text-pg">Deskripsi		: <?= $sub_des ?>...</pre>
                         </div>
                     </div>
                     <hr />

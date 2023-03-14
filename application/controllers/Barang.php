@@ -38,6 +38,7 @@ class Barang extends CI_Controller
         $kategori = $this->M_Main->getkategori();
 
         $databarang = $this->M_barang->getInfoEdit($uid, $id_barang);
+        
         $data['databarang'] = $databarang;
         $data['source'] = 'db';
 

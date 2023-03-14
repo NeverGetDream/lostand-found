@@ -64,7 +64,7 @@ CREATE TABLE `barang_hilang` (
   PRIMARY KEY (`id_barang`),
   KEY `id_user` (`id_user`),
   CONSTRAINT `barang_hilang_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`user_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,8 +73,35 @@ CREATE TABLE `barang_hilang` (
 
 LOCK TABLES `barang_hilang` WRITE;
 /*!40000 ALTER TABLE `barang_hilang` DISABLE KEYS */;
-INSERT INTO `barang_hilang` VALUES (1,11,2,'Dompet Hitam',0,'Dompet hilang ditemukan di jalan paccerakkang','paccerakkang','indomar paccerakkang','','dompet.jpeg'),(2,11,3,'Kunci Motor',0,'Ditemukan kunci di jalan abdesir','jalan abdesir','indomart abdesir','','kunci.jpg'),(3,11,4,'Buku Hacker',0,'Buku Hacker hilang ditemukan di gazebo','PNUP','Perpus PNUP','','heker.jpeg'),(12,27,1,'Mobil terbang',0,'Bone','Bengkel','Bone','4','12.jpg'),(13,27,1,'Cewek',30,'Cewek ini cakep bener cuyy','Bone','Hotel','Makassar','13.jpg'),(14,27,1,'Mobil terbang',30,'Mobil ini sangat gegeh','Bone','Bengkel','Makassar','14.jpg');
+INSERT INTO `barang_hilang` VALUES (24,34,1,'Handphone Samsung',30,'Hp ini ditemukan dalam kondisi mati total. Memiliki ciri sace berwarna agak kebiruan.','Mesjid Kampus 1 PNUP','Mushalah','Makassar','211.jpg'),(25,34,5,'Jam Tangan Kuning',30,'Jam yang cukup mewah, berwarna kuning, dalam kondisi masih sangat bagus.','Parkiran Kampus 2','Pos Satpam','Makassar','jam.jpeg');
 /*!40000 ALTER TABLE `barang_hilang` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comment` (
+  `comment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_thread` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `comment` text NOT NULL,
+  `date_comment` date NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`comment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comment`
+--
+
+LOCK TABLES `comment` WRITE;
+/*!40000 ALTER TABLE `comment` DISABLE KEYS */;
+INSERT INTO `comment` VALUES (11,8,34,'ini komentar pertama','2023-01-17'),(12,9,27,'tolong saya','2023-01-17'),(13,9,34,'saya menemukannya\r\n','2023-01-17'),(14,10,27,'saya tidak lihat','2023-01-18');
+/*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -157,7 +184,7 @@ CREATE TABLE `kategori` (
   `nomor` int(11) NOT NULL,
   `kategori` varchar(255) NOT NULL,
   PRIMARY KEY (`id_kategori`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -166,7 +193,7 @@ CREATE TABLE `kategori` (
 
 LOCK TABLES `kategori` WRITE;
 /*!40000 ALTER TABLE `kategori` DISABLE KEYS */;
-INSERT INTO `kategori` VALUES (1,1,'Handphone'),(2,2,'Dompet'),(3,3,'Kunci'),(4,4,'Buku');
+INSERT INTO `kategori` VALUES (1,1,'Handphone'),(2,2,'Dompet'),(3,3,'Kunci'),(4,4,'Buku'),(5,5,'Aksesoris\r\n'),(6,6,'Perangkat Elektronik'),(7,7,'ATK');
 /*!40000 ALTER TABLE `kategori` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,6 +229,32 @@ LOCK TABLES `menemukan` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `pesan_hubungi`
+--
+
+DROP TABLE IF EXISTS `pesan_hubungi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pesan_hubungi` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_pengguna` varchar(255) NOT NULL,
+  `email_pengguna` varchar(255) NOT NULL,
+  `pesan` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pesan_hubungi`
+--
+
+LOCK TABLES `pesan_hubungi` WRITE;
+/*!40000 ALTER TABLE `pesan_hubungi` DISABLE KEYS */;
+INSERT INTO `pesan_hubungi` VALUES (19,'Azwar Meizia Kusumah','azwarmeizia.kusumah@gmail.com','Test Pesan');
+/*!40000 ALTER TABLE `pesan_hubungi` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `prov`
 --
 
@@ -227,6 +280,34 @@ INSERT INTO `prov` VALUES (1,1,'Nanggroe Aceh Darussalam'),(2,2,'Sumatera Utara'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `threads`
+--
+
+DROP TABLE IF EXISTS `threads`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `threads` (
+  `thread_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `text` text NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`thread_id`),
+  KEY `uid` (`id_user`),
+  CONSTRAINT `uid` FOREIGN KEY (`id_user`) REFERENCES `users` (`user_id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `threads`
+--
+
+LOCK TABLES `threads` WRITE;
+/*!40000 ALTER TABLE `threads` DISABLE KEYS */;
+INSERT INTO `threads` VALUES (8,27,'ini percobaan postingan pertama.','2023-01-17'),(9,27,'saya kehilangan dompet dengan ciri ciri warna hitam','2023-01-17'),(10,27,'barang saya hilang','2023-01-18');
+/*!40000 ALTER TABLE `threads` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -238,6 +319,7 @@ CREATE TABLE `users` (
   `first_name` varchar(80) NOT NULL,
   `last_name` varchar(80) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `no_hp` varchar(255) NOT NULL,
   `password` varchar(256) CHARACTER SET utf8 NOT NULL,
   `provinsi` varchar(255) NOT NULL,
   `kota` varchar(255) NOT NULL,
@@ -247,7 +329,7 @@ CREATE TABLE `users` (
   `is_active` int(1) NOT NULL,
   `date_created` int(11) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -256,8 +338,40 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (11,'Azwar','Meizia','goawayb1tchh@gmail.com','$2y$10$ed.UJsoAlNiQD9nK/4qfFeI9coPGxX.Ux/lcWMGCFePxGQKYIFmVO','Sulawesi Selatan','Makassar','PNUP Kampus 2','unnamed.jpg',1,1,1670408665),(12,'Azwar','Kusumah','azwarkusumah711@gmail.com','$2y$10$HjX5D26jCXMNqXJ1QxIQ8exJqqyrH2iEzZFklV/Poq.fUYqVlMi1W','aaa','makassaar','aaaa','default.jpg',2,1,1670408769),(13,'Azwar','Kusumah','aa@gmail.com','$2y$10$ed.UJsoAlNiQD9nK/4qfFeI9coPGxX.Ux/lcWMGCFePxGQKYIFmVO','Sulawesi Selatan','Makassar','PNUP Kampus 2','user.jpg',1,1,1670408665),(14,'aaa','aaa','aaa@gmail.com','$2y$10$HjX5D26jCXMNqXJ1QxIQ8exJqqyrH2iEzZFklV/Poq.fUYqVlMi1W','aaa','makassaar','aaaa','default.jpg',2,1,1670408769),(15,'Azwar','Kusumah','aaaa@gmail.com','$2y$10$ed.UJsoAlNiQD9nK/4qfFeI9coPGxX.Ux/lcWMGCFePxGQKYIFmVO','Sulawesi Selatan','Makassar','PNUP Kampus 2','user.jpg',1,1,1670408665),(16,'aaa','aaa','aaaaa@gmail.com','$2y$10$HjX5D26jCXMNqXJ1QxIQ8exJqqyrH2iEzZFklV/Poq.fUYqVlMi1W','aaa','makassaar','aaaa','default.jpg',2,1,1670408769),(17,'Azwar','Kusumah','ss@gmail.com','$2y$10$ed.UJsoAlNiQD9nK/4qfFeI9coPGxX.Ux/lcWMGCFePxGQKYIFmVO','Sulawesi Selatan','Makassar','PNUP Kampus 2','user.jpg',1,1,1670408665),(18,'aaa','aaa','sss@gmail.com','$2y$10$HjX5D26jCXMNqXJ1QxIQ8exJqqyrH2iEzZFklV/Poq.fUYqVlMi1W','aaa','makassaar','aaaa','default.jpg',2,1,1670408769),(19,'Azwar','Kusumah','aaaaaa@gmail.com','$2y$10$ed.UJsoAlNiQD9nK/4qfFeI9coPGxX.Ux/lcWMGCFePxGQKYIFmVO','Sulawesi Selatan','Makassar','PNUP Kampus 2','user.jpg',1,1,1670408665),(20,'aaa','aaa','bbbbb@gmail.com','$2y$10$HjX5D26jCXMNqXJ1QxIQ8exJqqyrH2iEzZFklV/Poq.fUYqVlMi1W','aaa','makassaar','aaaa','default.jpg',2,1,1670408769),(21,'Azwar','Kusumah','aa@gmail.com','$2y$10$ed.UJsoAlNiQD9nK/4qfFeI9coPGxX.Ux/lcWMGCFePxGQKYIFmVO','Sulawesi Selatan','Makassar','PNUP Kampus 2','user.jpg',1,1,1670408665),(22,'aaa','aaa','aaa@gmail.com','$2y$10$HjX5D26jCXMNqXJ1QxIQ8exJqqyrH2iEzZFklV/Poq.fUYqVlMi1W','aaa','makassaar','aaaa','default.jpg',2,1,1670408769),(23,'Azwar','Kusumah','aaaa@gmail.com','$2y$10$ed.UJsoAlNiQD9nK/4qfFeI9coPGxX.Ux/lcWMGCFePxGQKYIFmVO','Sulawesi Selatan','Makassar','PNUP Kampus 2','user.jpg',1,1,1670408665),(24,'aaa','aaa','aaaaa@gmail.com','$2y$10$HjX5D26jCXMNqXJ1QxIQ8exJqqyrH2iEzZFklV/Poq.fUYqVlMi1W','aaa','makassaar','aaaa','default.jpg',2,1,1670408769),(25,'Azwar','Kusumah','ss@gmail.com','$2y$10$ed.UJsoAlNiQD9nK/4qfFeI9coPGxX.Ux/lcWMGCFePxGQKYIFmVO','Sulawesi Selatan','Makassar','PNUP Kampus 2','user.jpg',1,1,1670408665),(26,'aaa','aaa','sss@gmail.com','$2y$10$HjX5D26jCXMNqXJ1QxIQ8exJqqyrH2iEzZFklV/Poq.fUYqVlMi1W','aaa','makassaar','aaaa','default.jpg',2,1,1670408769),(27,'zaedil','slebew','aedil@gmail.com','$2y$10$gllzjZUOgEdkGK6dLczF6ueSfal6eahzRFYHOPU2DQc8T7.1KCdUS','Sulawesi Selatan','Makassar','Makassar','default.png',2,1,1672118537);
+INSERT INTO `users` VALUES (12,'Azwar','Kusumah','azwarkusumah711@gmail.com','','$2y$10$HjX5D26jCXMNqXJ1QxIQ8exJqqyrH2iEzZFklV/Poq.fUYqVlMi1W','aaa','makassaar','aaaa','default.jpg',2,1,1670408769),(13,'Azwar','Kusumah','aa@gmail.com','','$2y$10$ed.UJsoAlNiQD9nK/4qfFeI9coPGxX.Ux/lcWMGCFePxGQKYIFmVO','Sulawesi Selatan','Makassar','PNUP Kampus 2','user.jpg',1,1,1670408665),(15,'Azwar','Kusumah','aaaa@gmail.com','','$2y$10$ed.UJsoAlNiQD9nK/4qfFeI9coPGxX.Ux/lcWMGCFePxGQKYIFmVO','Sulawesi Selatan','Makassar','PNUP Kampus 2','user.jpg',1,1,1670408665),(17,'Azwar','Kusumah','ss@gmail.com','','$2y$10$ed.UJsoAlNiQD9nK/4qfFeI9coPGxX.Ux/lcWMGCFePxGQKYIFmVO','Sulawesi Selatan','Makassar','PNUP Kampus 2','user.jpg',1,1,1670408665),(21,'Azwar','Kusumah','aa@gmail.com','','$2y$10$ed.UJsoAlNiQD9nK/4qfFeI9coPGxX.Ux/lcWMGCFePxGQKYIFmVO','Sulawesi Selatan','Makassar','PNUP Kampus 2','user.jpg',1,1,1670408665),(23,'Azwar','Kusumah','aaaa@gmail.com','','$2y$10$ed.UJsoAlNiQD9nK/4qfFeI9coPGxX.Ux/lcWMGCFePxGQKYIFmVO','Sulawesi Selatan','Makassar','PNUP Kampus 2','user.jpg',1,1,1670408665),(25,'Azwar','Kusumah','ss@gmail.com','','$2y$10$ed.UJsoAlNiQD9nK/4qfFeI9coPGxX.Ux/lcWMGCFePxGQKYIFmVO','Sulawesi Selatan','Makassar','PNUP Kampus 2','user.jpg',1,1,1670408665),(26,'aaa','aaa','sss@gmail.com','','$2y$10$HjX5D26jCXMNqXJ1QxIQ8exJqqyrH2iEzZFklV/Poq.fUYqVlMi1W','aaa','makassaar','aaaa','default.jpg',2,1,1670408769),(27,'aedil','febrian','aedil@gmail.com','123456','$2y$10$Ok.36QBLvaBJOXuVDmeLAOjk7oguq2ogJQFwQq809JYzFG8UBhWJW','Sulawesi Selatan','Makassar','Jl.Sahabat','aedil27.jpg',2,1,1672118537),(28,'admin','cool','admin@gmail.com','','$2y$10$o7wW.1w1.03ttmX7eocZaOR2Ux3cRS8w5VjWXUBRhxAnK2ITtPsMm','Sulawesi Selatan','Makassar','Makassar','default.jpg',1,1,1672763975),(29,'Nigger','Anjay','user@gmail.com','','$2y$10$GPTqDhgR7OpECSOCcv14ROJpFiAnb0lUC3K6kvXE3HPbK7frtBYBq','Sulawesi Selatan','Makassar','Makassar','default.jpg',2,1,1673598489),(33,'asep','bb','cc@gmail.com','123','$2y$10$Xk.6PmvlACcQ2BAFzGD6quyiDpt6Lqlmvg12ma/ZLdJFnxM6BYTHG','Jawa Tengah','dd','ee','default.jpg',2,1,1673646823),(34,'asep','jajang','asep@gmail.com','12345','$2y$10$qZELS2zUTHwuD1nxZu80IOeU04ezVi/nlc12SrMe4zc.CNv9IZokG','Kalimantan Selatan','Makassar','Makassar','default.jpg',2,1,1673902923);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `verif_request`
+--
+
+DROP TABLE IF EXISTS `verif_request`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `verif_request` (
+  `request_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_barang` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `status_req` varchar(100) NOT NULL DEFAULT 'pending',
+  `img_A` varchar(255) DEFAULT NULL,
+  `img_B` varchar(255) DEFAULT NULL,
+  `img_C` varchar(255) DEFAULT NULL,
+  `img_D` varchar(255) DEFAULT NULL,
+  `img_E` varchar(255) DEFAULT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`request_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `verif_request`
+--
+
+LOCK TABLES `verif_request` WRITE;
+/*!40000 ALTER TABLE `verif_request` DISABLE KEYS */;
+INSERT INTO `verif_request` VALUES (4,25,34,'pending','asking.png','found.png','','','','2023-01-17');
+/*!40000 ALTER TABLE `verif_request` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -269,4 +383,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-28 14:40:48
+-- Dump completed on 2023-03-14 16:14:14

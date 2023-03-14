@@ -188,6 +188,7 @@ class Profile extends CI_Controller{
             $data['status'] = 'uploaded';
 
             $error['back'] = 'profile/uploaded/0';
+
             switch (count($args)) {
                 case '1':
                     $data['updata'] = $this->M_profile->getUploadedData($args[0], null);
@@ -203,6 +204,7 @@ class Profile extends CI_Controller{
                         $this->load->view('emptydata', $error);
                     }
                     break;
+                
                 case '2':
                     $data['updata'] = $this->M_profile->getUploadedData($args[0], $args[1]);
                     $data['kat_select'] = $this->M_profile->getSelectKat($args[1]);

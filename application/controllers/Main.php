@@ -42,7 +42,7 @@ class Main extends CI_Controller
             return;
         }
         // Get data searching
-        $search = $this->input->get('key');
+        $search = $this->input->get('searchkey');
 
         // Load
         $this->load->model('M_barang');
@@ -54,7 +54,7 @@ class Main extends CI_Controller
             $barang = $this->M_barang->getlost();
         }
 
-        $kat = $this->M_Main->getkategori();
+        $kat = $this->M_Main->getkategori();        
 
         $data['barang'] = $barang;
         $data['kat'] = $kat;
@@ -62,8 +62,15 @@ class Main extends CI_Controller
         $data['status'] = 'barang';
 
         $this->load->view('components/navbar', $data);
-        $this->load->view('main/temukan', $data);
-        $this->load->view('components/footer.php');
+
+        if(empty($barang)){
+            $data['back'] = 'main/barang';
+            $this->load->view('emptydata', $data);
+        }
+        else{
+            $this->load->view('main/temukan', $data);
+            $this->load->view('components/footer.php');
+        }
     }
     
     public function threads(){
